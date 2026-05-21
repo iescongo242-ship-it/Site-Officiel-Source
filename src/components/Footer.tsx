@@ -1,5 +1,5 @@
 import { MapPin, Phone, Mail, Globe, Facebook } from "lucide-react";
-import logoIesc from "@/assets/logo-iesc.jpeg";
+import logoWhite from "@/assets/logo-iesc-white.png";
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <img src={logoIesc} alt="IESC" className="h-16 w-auto mb-4 rounded bg-background p-1" />
+            <img src={logoWhite} alt="IESC" className="h-16 w-auto mb-4 rounded  p-1" />
             <p className="text-background/70 text-sm leading-relaxed">
               Institut d'Enseignement Supérieur du Congo — Établissement privé agréé formant les cadres de demain.
             </p>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Search } from "lucide-react";
-import logoIesc from "@/assets/logo-iesc.jpeg";
+import logoIesc from "@/assets/logo-iesc-color.webp";
 
 const navLinks = [
   { label: "Accueil", href: "/" },
