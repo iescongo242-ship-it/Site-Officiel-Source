@@ -8,7 +8,7 @@ const navLinks = [
   { label: "Formations", href: "/formations" },
   { label: "Admissions", href: "/admissions" },
   { label: "Campus", href: "/campus" },
-  { label: "Événements", href: "/evenements" },
+  { label: "Actualités & Vie Étudiante", href: "/evenements" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -25,7 +25,7 @@ const Navbar = () => {
     { label: "Formations", href: "/formations", keywords: "formations filières programmes cours gestion informatique" },
     { label: "Admissions", href: "/admissions", keywords: "admissions inscription inscrire dossier" },
     { label: "Campus", href: "/campus", keywords: "campus localisation bâtiment" },
-    { label: "Événements", href: "/evenements", keywords: "événements activités conférence" },
+    { label: "Actualités & Vie Étudiante", href: "/evenements", keywords: "événements activités conférence actualités vie étudiante" },
     { label: "Contact", href: "/contact", keywords: "contact téléphone email adresse" },
   ];
 
@@ -46,8 +46,17 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
+     <>
+    {/* DÉBUT DE LA BANNIÈRE JPO */}
+    <div className="bg-[#800000] text-white text-center py-3 px-4 text-sm md:text-base font-semibold shadow-md z-50 relative">
+      📢 GRANDE JOURNÉE PORTES OUVERTES ! Venez découvrir le Campus de l'IESC le <span className="text-yellow-300">Samedi 30 Mai à 09h00</span>. 
+      <a href="/admissions" className="underline ml-2 hover:text-gray-200 transition-colors">
+        Inscrivez-vous ici !
+      </a>
+    </div>
+    {/* FIN DE LA BANNIÈRE JPO */}
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background ${
+      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-background ${
         scrolled ? "shadow-lg" : ""
       }`}
     >
@@ -104,12 +113,22 @@ const Navbar = () => {
           ))}
         </div>
 
-        <Link
-          to="/contact"
-          className="hidden lg:inline-flex items-center px-6 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded-md hover:bg-accent transition-colors"
-        >
-          S'inscrire
-        </Link>
+        {/* Les 2 boutons d'action (Ordinateur et Tablette) */}
+        <div className="hidden lg:flex items-center gap-4">
+          <button
+            onClick={() => alert("L'Espace Étudiant sera bientôt disponible pour la prochaine rentrée !")}
+            className="items-center px-4 py-2.5 border-2 border-primary text-primary text-sm font-semibold rounded-md hover:bg-primary/5 transition-colors"
+          >
+            Espace Étudiant
+          </button>
+          
+          <Link
+            to="/admissions"
+            className="items-center px-6 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded-md hover:bg-accent transition-colors"
+          >
+            S'inscrire
+          </Link>
+        </div>
 
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -159,8 +178,14 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
+            <button
+              onClick={() => alert("L'Espace Étudiant sera bientôt disponible !")}
+              className="mt-2 text-center px-6 py-2.5 border-2 border-primary text-primary font-semibold rounded-md"
+            >
+              Espace Étudiant
+            </button>
             <Link
-              to="/contact"
+              to="/admissions"
               onClick={() => setIsOpen(false)}
               className="mt-2 text-center px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md"
             >
@@ -170,6 +195,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+    </>
   );
 };
 
