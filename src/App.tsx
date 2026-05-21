@@ -12,7 +12,6 @@ import EvenementsPage from "./pages/EvenementsPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ChatBot from "./components/ChatBot.tsx";
 import WhatsAppButton from "./components/WhatsAppButton.tsx";
-import WeatherWidget from "./components/WeatherWidget.tsx";
 import CookieConsent from "./components/CookieConsent.tsx";
 
 const queryClient = new QueryClient();
@@ -35,9 +34,7 @@ const App = () => (
         </Routes>
         <ChatBot />
         <WhatsAppButton />
-        <div className="fixed top-24 right-4 z-40 hidden xl:block w-64">
-          <WeatherWidget />
-        </div>
+      
         <CookieConsent />
       </BrowserRouter>
     </TooltipProvider>

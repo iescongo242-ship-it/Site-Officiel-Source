@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Search } from "lucide-react";
-import logoIesc from "@/assets/logo-iesc.jpeg";
+import logoIesc from "../assets/logo-iesc-color.png";
 
 const navLinks = [
   { label: "Accueil", href: "/" },
@@ -46,14 +46,25 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background ${
+          
+        <>
+          {/* DÉBUT DE LA BANNIÈRE JPO */}
+          <div className="bg-[#800000] text-white text-center py-3 px-4 text-sm md:text-base font-semibold shadow-md z-50 relative">
+            📢 GRANDE JOURNÉE PORTES OUVERTES ! Venez découvrir le Campus de l'IESC le <span className="text-yellow-300">Samedi 27 Juin à 08h00</span>. 
+            <a href="/admissions" className="underline ml-2 hover:text-gray-200 transition-colors">
+              Inscrivez-vous ici !
+            </a>
+          </div>
+          {/* FIN DE LA BANNIÈRE JPO */}
+       
+   <nav
+      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-background ${
         scrolled ? "shadow-lg" : ""
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-20 px-4">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logoIesc} alt="IESC Logo" className="h-20 w-auto" />
+          <img src={logoIesc} alt="Logo IESC" className="h-20 w-auto" />
         </Link>
 
         {/* Search bar */}
@@ -170,6 +181,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+   </>
   );
 };
 
