@@ -36,6 +36,7 @@ const App = () => (
         <ChatBot />
         <WhatsAppButton />
        
+      
         <CookieConsent />
       </BrowserRouter>
     </TooltipProvider>
