@@ -12,6 +12,7 @@ import EvenementsPage from "./pages/EvenementsPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ChatBot from "./components/ChatBot.tsx";
 import WhatsAppButton from "./components/WhatsAppButton.tsx";
+
 import CookieConsent from "./components/CookieConsent.tsx";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
         </Routes>
         <ChatBot />
         <WhatsAppButton />
+       
       
         <CookieConsent />
       </BrowserRouter>
