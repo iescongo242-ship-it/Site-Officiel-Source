@@ -47,14 +47,12 @@ const Navbar = () => {
 
   return (
     <>
-      {/* DÉBUT DE LA BANNIÈRE JPO */}
-      <div className="bg-[#800000] text-white text-center py-3 px-4 text-sm md:text-base font-semibold shadow-md z-50 relative">
-        📢 GRANDE JOURNÉE PORTES OUVERTES ! Venez découvrir le Campus de l'IESC le <span className="text-yellow-300">Samedi 27 Juin à 08h00</span>. 
-        <a href="/admissions" className="underline ml-2 hover:text-gray-200 transition-colors">
-          Inscrivez-vous ici !
-        </a>
-      </div>
-      {/* FIN DE LA BANNIÈRE JPO */}
+      <div className="bg-[#CC1122] text-white text-center py-3 px-4 text-sm md:text-base font-semibold shadow-md z-50 relative font-sans">
+      📢 GRANDE Journée Portes Ouvertes : <span className="text-yellow-300">Samedi 27 Juin à 08h00</span> ! Pré-inscrivez-vous en ligne (Kit IESC offert aux 50 premiers). 
+      <a href="/admissions" className="underline ml-2 hover:text-gray-200 transition-colors">
+        Réserver ma place !
+      </a>
+    </div>
        
       <nav
         className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-background ${

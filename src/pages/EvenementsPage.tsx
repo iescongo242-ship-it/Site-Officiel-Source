@@ -9,17 +9,17 @@ import eventConference from "@/assets/event-conference.jpg";
 
 const upcomingEvents = [
   {
-    title: "Soirée Ciné-Débat",
-    date: "25 Avril 2026",
-    time: "14h00 - 17h00",
-    location: "112, Avenue de France, Poto-Poto",
-    description: "L'IESC organise une soirée ciné-débat ouverte à tous. PAF : 1.000 FCFA. Venez nombreux !",
-    image: eventCineDebat,
-    category: "Ciné-Débat",
+    title: "Grande Journée Portes Ouvertes (JPO)",
+    date: "27 Juin 2026",
+    time: "08h00 - 15h00",
+    location: "Campus de l'IESC, Brazzaville",
+    description: "Venez découvrir notre campus et nos filières d'excellence ! Au programme : visites guidées, ateliers et grand cocktail de clôture. 🎁 BONUS : Pré-inscrivez-vous en ligne et recevez le Kit IESC (réservé aux 50 premiers). 🎉 LE JOUR-J : Tirage au sort exceptionnel avec -15% de réduction pour les 10 premiers dossiers validés !",
+    image: eventConference, 
+    category: "Portes Ouvertes - Places Limitées",
   },
   {
     title: "Conférence : L'IA et l'Avenir de l'Emploi en Afrique",
-    date: "28 Octobre 2025",
+    date: "28 Octobre 2026",
     time: "14h00 - 17h00",
     location: "Amphithéâtre Principal",
     description: "Des experts nationaux et internationaux discuteront de l'impact de l'intelligence artificielle sur le marché de l'emploi.",
@@ -28,20 +28,36 @@ const upcomingEvents = [
   },
   {
     title: "Cérémonie de Remise des Diplômes",
-    date: "20 Décembre 2025",
+    date: "20 Décembre 2026",
     time: "10h00 - 13h00",
     location: "Salle des Fêtes, Brazzaville",
-    description: "Célébrons ensemble la réussite de nos diplômés de la promotion 2024-2025.",
+    description: "Célébrons ensemble la réussite de nos diplômés de la promotion sortante. Une journée mémorable pour nos étudiants et leurs familles.",
     image: eventGraduation,
     category: "Cérémonie",
   },
 ];
 
 const pastEvents = [
-  { title: "Hackathon IESC 2024", date: "Mars 2024", description: "48 heures de créativité et d'innovation technologique entre étudiants." },
-  { title: "Semaine de l'Entrepreneuriat", date: "Janvier 2024", description: "Ateliers, conférences et pitchs avec des entrepreneurs congolais." },
-  { title: "Forum Emploi & Stages", date: "Novembre 2023", description: "Rencontre entre nos étudiants et plus de 20 entreprises partenaires." },
-  { title: "Journée Mondiale du Droit", date: "Octobre 2023", description: "Conférences-débats animées par des magistrats et avocats au barreau de Brazzaville." },
+  { 
+    title: "L'IESC à l'événement de l'innovation MTN", 
+    date: "Mai 2026", 
+    description: "Participation de notre institution à la présentation des solutions technologiques innovantes organisée par MTN Congo. Échanges exclusifs et interviews des acteurs de la Tech." 
+  },
+  { 
+    title: "Soirée Ciné-Débat", 
+    date: "Avril 2026", 
+    description: "Une soirée riche en débats et en partage organisée par nos étudiants sur le campus." 
+  },
+  { 
+    title: "Hackathon IESC 2026", 
+    date: "Mars 2026", 
+    description: "48 heures de créativité et d'innovation technologique réunissant les meilleurs talents de l'école." 
+  },
+  { 
+    title: "Forum Emploi & Stages", 
+    date: "Novembre 2025", 
+    description: "Rencontre exclusive entre nos étudiants et plus de 20 entreprises partenaires (Banques, Télécoms, Assurances)." 
+  },
 ];
 
 const EvenementsPage = () => {
@@ -51,16 +67,16 @@ const EvenementsPage = () => {
 
       <ZoomCarousel
         images={[
-          { src: eventCineDebat, alt: "Soirée Ciné-Débat IESC" },
+          { src: eventCineDebat, alt: "Vie étudiante IESC" },
           { src: eventGraduation, alt: "Remise de diplômes" },
           { src: eventConference, alt: "Conférence" },
         ]}
-        title="Événements"
-        subtitle="Découvrez les temps forts de la vie à l'IESC : conférences, cérémonies, journées portes ouvertes et bien plus."
-        badge="Vie Universitaire"
+        title="Actualités & Vie Étudiante"
+        subtitle="Découvrez les temps forts de l'IESC : notre participation aux grands événements, nos conférences, et la vie sur le campus."
+        badge="Le Magazine de l'IESC"
       />
 
-      {/* Upcoming Events */}
+      {/* Upcoming Events / Agenda */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
@@ -77,12 +93,12 @@ const EvenementsPage = () => {
         </div>
       </section>
 
-      {/* Past Events */}
+      {/* Past Events / Actualités (MTN, etc.) */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">Rétrospective</span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mt-2">Événements Passés</h2>
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">À la une</span>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mt-2">Dernières Actualités</h2>
             <div className="w-16 h-1 bg-primary mx-auto mt-4 rounded-full" />
           </div>
 
@@ -96,7 +112,7 @@ const EvenementsPage = () => {
           <Users size={48} className="mx-auto mb-6 opacity-80" />
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">Restez Informé</h2>
           <p className="text-primary-foreground/80 max-w-lg mx-auto mb-8">
-            Suivez-nous sur les réseaux sociaux pour ne manquer aucun événement de l'IESC.
+            Suivez-nous sur les réseaux sociaux pour ne manquer aucune actualité de l'IESC.
           </p>
           <a
             href="https://www.facebook.com/institutiesc"
