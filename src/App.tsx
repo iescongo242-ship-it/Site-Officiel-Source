@@ -1,3 +1,4 @@
+import CheckoutPage from "./pages/CheckoutPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/formations" element={<FormationsPage />} />
           <Route path="/admissions" element={<AdmissionsPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/campus" element={<CampusPage />} />
           <Route path="/evenements" element={<EvenementsPage />} />
           <Route path="/contact" element={<ContactPage />} />
@@ -35,7 +37,6 @@ const App = () => (
         </Routes>
         <ChatBot />
         <WhatsAppButton />
-       
         <CookieConsent />
       </BrowserRouter>
     </TooltipProvider>

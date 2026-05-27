@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FileText, CreditCard, CheckCircle, ArrowRight, Calendar,
-  ClipboardList, AlertCircle, Download,
+  ClipboardList, AlertCircle, Download, CheckCircle2, HelpCircle, Send
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,21 +11,12 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import studentsAdmission from "@/assets/students-admission.jpg";
 import studentsGroup from "@/assets/students-group.jpg";
 
-const steps = [
-  { step: "01", title: "Préparez votre dossier", description: "Rassemblez tous les documents nécessaires listés ci-dessous" },
-  { step: "02", title: "Déposez votre candidature", description: "Rendez-vous au campus ou envoyez votre dossier par email" },
-  { step: "03", title: "Entretien d'admission", description: "Passez un entretien avec notre commission pédagogique" },
-  { step: "04", title: "Confirmation & Inscription", description: "Recevez votre lettre d'admission et finalisez votre inscription" },
-];
-
+// Liste des documents nettoyée et professionnelle
 const documents = [
-  "Copie du dernier diplôme (BAC minimum)",
+  "Copie légalisée du dernier diplôme (BAC ou équivalent)",
   "Relevés de notes des 2 dernières années",
   "Photocopie en couleur de l'acte de naissance",
   "4 photos d'identité format passeport",
-  "Enveloppe Kaki format A4",
-  "Un paquet de RAM A4",
-  "Un paquet de marqueurs pour tableau blanc",
   "Copie de la carte d'identité ou du passeport",
 ];
 
@@ -39,7 +30,24 @@ const faqs = [
 
 const AdmissionsPage = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const { ref: stepsRef, isVisible: stepsVisible } = useScrollAnimation();
+  const navigate = useNavigate(); // Outil pour rediriger l'étudiant
+  
+  // État du formulaire
+  const [formData, setFormData] = useState({
+    prenom: "",
+    nom: "",
+    telephone: "",
+    email: "",
+    filiere: "",
+  });
+
+  // Action lors du clic sur le bouton Valider
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Pré-inscription validée pour :", formData);
+    // Redirection magique vers la page chariot qu'on va créer !
+    navigate("/checkout");
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -50,115 +58,128 @@ const AdmissionsPage = () => {
           { src: studentsAdmission, alt: "Admissions IESC" },
           { src: studentsGroup, alt: "Étudiants IESC" },
         ]}
-        title="Admissions"
-        subtitle="Rejoignez l'IESC et construisez votre avenir professionnel. Découvrez les étapes d'inscription et les conditions d'admission."
+        title="Admissions & Inscriptions"
+        subtitle="Rejoignez l'IESC et construisez votre avenir professionnel. Pré-inscrivez-vous en ligne en 2 minutes."
       />
 
-      {/* Steps */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-heading font-bold text-foreground mb-4">Comment s'inscrire ?</h2>
-            <div className="w-20 h-1 bg-primary mx-auto" />
-          </div>
-
-          <div ref={stepsRef} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {steps.map((s, i) => (
-              <div
-                key={i}
-                className={`relative text-center transition-all duration-500 ${
-                  stepsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
-                style={{ transitionDelay: `${i * 150}ms` }}
-              >
-                <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-4 text-xl font-heading font-bold hover:scale-110 transition-transform duration-300">
-                  {s.step}
-                </div>
-                {i < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-0.5 bg-border" />
-                )}
-                <h3 className="font-heading font-bold text-foreground mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground">{s.description}</p>
-              </div>
-            ))}
+      {/* EN-TÊTE D'URGENCE (FOMO) */}
+      <div className="bg-[#1A4B84] text-white py-12 border-b-4 border-[#CC1122]">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">
+            La campagne d'admission est ouverte !
+          </h2>
+          <div className="inline-block bg-[#CC1122] text-white font-bold py-3 px-8 rounded-full shadow-lg animate-pulse text-sm md:text-base">
+            🎁 KIT IESC OFFERT AUX 50 PREMIERS INSCRITS EN LIGNE
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Documents & Fees */}
-      <section className="py-20 section-alt">
+      {/* NOUVELLE SECTION : 2 COLONNES (WW-Academy Style) */}
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            <div className="bg-card rounded-xl p-8 shadow-lg border border-border hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center">
-                  <ClipboardList size={24} className="text-primary-foreground" />
-                </div>
-                <h2 className="text-2xl font-heading font-bold text-foreground">Dossier d'inscription</h2>
-              </div>
-              <ul className="space-y-3">
-                {documents.map((doc, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    <CheckCircle size={16} className="text-primary mt-0.5 shrink-0" />
-                    {doc}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-6">
-              <div className="bg-primary rounded-xl p-8 shadow-lg relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-accent/20 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700" />
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-lg bg-primary-foreground/20 flex items-center justify-center">
-                      <CreditCard size={24} className="text-primary-foreground" />
-                    </div>
-                    <h2 className="text-2xl font-heading font-bold text-primary-foreground">Frais de scolarité</h2>
-                  </div>
-
-                  <div className="space-y-4 mb-6">
-                    <div className="flex justify-between items-center border-b border-primary-foreground/20 pb-3">
-                      <span className="text-primary-foreground/80">Frais d'inscription</span>
-                      <span className="text-xl font-bold text-gold">30.000 FCFA</span>
-                    </div>
-                    <div className="flex justify-between items-center border-b border-primary-foreground/20 pb-3">
-                      <span className="text-primary-foreground/80">Coût de la Formation</span>
-                      <span className="text-xl font-bold text-gold">300.000 FCFA en L1</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-primary-foreground/80">Modalité de paiement</span>
-                      <span className="text-primary-foreground font-medium">Par tranche suivant le mois ou le semestre</span>
-                    </div>
-                  </div>
-
-                  <Link
-                    to="/contact"
-                    className="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-gold text-gold-foreground font-semibold rounded-md hover:brightness-110 hover:scale-[1.02] transition-all"
-                  >
-                    Postuler maintenant
-                    <ArrowRight size={18} />
-                  </Link>
-                </div>
-              </div>
-
-              <div className="bg-card rounded-xl p-6 border border-border shadow-sm hover:shadow-md transition-shadow">
-                <div className="flex items-start gap-3">
-                  <AlertCircle size={20} className="text-gold mt-0.5 shrink-0" />
+          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            
+            {/* COLONNE GAUCHE : LES ÉTAPES & PIÈCES */}
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-8 font-heading">
+                Comment s'inscrire en 3 étapes ?
+              </h2>
+              
+              <div className="space-y-8 mb-12">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1A4B84]/10 flex items-center justify-center text-[#1A4B84] font-bold text-xl">1</div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1">Facilités de paiement</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Des facilités de paiement sont disponibles. Contactez notre service des admissions pour en discuter.
-                    </p>
+                    <h3 className="text-xl font-bold mb-2">Formulaire en ligne</h3>
+                    <p className="text-gray-600">Remplissez le formulaire ci-contre pour réserver votre place et tenter de gagner votre Kit IESC.</p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1A4B84]/10 flex items-center justify-center text-[#1A4B84] font-bold text-xl">2</div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Frais d'étude de dossier</h3>
+                    <p className="text-gray-600">Réglez les frais administratifs de <span className="font-bold text-[#CC1122]">30.000 FCFA</span> de manière sécurisée (Mobile Money accepté).</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1A4B84]/10 flex items-center justify-center text-[#1A4B84] font-bold text-xl">3</div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Dépôt du dossier physique</h3>
+                    <p className="text-gray-600">Passez sur notre campus avec les documents listés ci-dessous pour finaliser votre inscription.</p>
                   </div>
                 </div>
               </div>
+
+              {/* PIÈCES À FOURNIR (Repris de tes anciennes données) */}
+              <div className="bg-white p-6 rounded-xl shadow-md border-l-4 border-[#1A4B84]">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <ClipboardList className="text-[#1A4B84]" />
+                  Pièces à fournir (Jour-J)
+                </h3>
+                <ul className="space-y-3">
+                  {documents.map((doc, i) => (
+                    <li key={i} className="flex items-start gap-2 text-gray-700 text-sm">
+                      <CheckCircle2 className="text-green-500 shrink-0 mt-0.5" size={18} />
+                      <span>{doc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
+
+            {/* COLONNE DROITE : LE FORMULAIRE INTERACTIF */}
+            <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+              <h3 className="text-2xl font-bold text-center text-[#1A4B84] mb-2 font-heading">Formulaire de Pré-inscription</h3>
+              <p className="text-center text-gray-500 mb-8 text-sm">Remplissez vos informations avec soin pour réserver votre place</p>
+              
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Prénom *</label>
+                    <input required type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1A4B84] focus:border-transparent outline-none" onChange={(e) => setFormData({...formData, prenom: e.target.value})} />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Nom *</label>
+                    <input required type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1A4B84] focus:border-transparent outline-none" onChange={(e) => setFormData({...formData, nom: e.target.value})} />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Téléphone (WhatsApp) *</label>
+                  <input required type="tel" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1A4B84] focus:border-transparent outline-none" placeholder="+242 06 XXX XX XX" onChange={(e) => setFormData({...formData, telephone: e.target.value})} />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Filière souhaitée *</label>
+                 <select required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1A4B84] focus:border-transparent outline-none bg-white" onChange={(e) => setFormData({...formData, filiere: e.target.value})}>
+                  <option value="">-- Sélectionnez une filière --</option>
+                  <option value="genie-informatique">Génie Informatique</option>
+                  <option value="gestion-rh">Gestion des Ressources Humaines</option>
+                  <option value="comptabilite">Comptabilité</option>
+                  <option value="banque-assurance">Banque, Assurances et Finances</option>
+                  <option value="reseaux-telecoms">Réseaux et Télécommunications</option>
+                  <option value="logistique">Management de la Chaîne Logistique</option>
+                  <option value="entrepreneuriat">Management Entrepreneuriat</option>
+                  <option value="droit">Droit</option>
+                </select>
+                </div>
+
+                <button type="submit" className="w-full flex items-center justify-center gap-2 bg-[#CC1122] hover:bg-[#A00D1A] text-white font-bold py-4 px-6 rounded-lg transition-colors mt-6 shadow-md">
+                  <CreditCard size={20} />
+                  Valider & Payer (30.000 FCFA)
+                </button>
+                <p className="text-xs text-center text-gray-500 mt-3 flex items-center justify-center gap-1">
+                  Vous serez redirigé vers notre plateforme de paiement sécurisée.
+                </p>
+              </form>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Calendar */}
+      {/* Calendar (Gardé intact de l'ancien code) */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -175,12 +196,12 @@ const AdmissionsPage = () => {
               { period: "Mai – Juin", event: "Examens 2ème semestre", icon: FileText },
               { period: "Juillet – Septembre", event: "Stages en entreprise", icon: Download },
             ].map((item, i) => (
-              <div key={i} className="flex items-start gap-4 p-5 bg-card rounded-lg border border-border card-hover group">
+              <div key={i} className="flex items-start gap-4 p-5 bg-card rounded-lg border border-border card-hover group hover:border-[#1A4B84] transition-colors">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors duration-300">
                   <item.icon size={20} className="text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-gold">{item.period}</div>
+                  <div className="text-sm font-semibold text-primary">{item.period}</div>
                   <div className="text-foreground font-medium">{item.event}</div>
                 </div>
               </div>
@@ -189,24 +210,24 @@ const AdmissionsPage = () => {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20 section-alt">
+      {/* FAQ (Gardée intacte) */}
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-heading font-bold text-foreground mb-4">Questions Fréquentes</h2>
-            <div className="w-20 h-1 bg-primary mx-auto" />
+            <div className="w-20 h-1 bg-[#1A4B84] mx-auto" />
           </div>
 
           <div className="max-w-3xl mx-auto space-y-3">
             {faqs.map((faq, i) => (
-              <div key={i} className="bg-card rounded-lg border border-border overflow-hidden hover:shadow-md transition-shadow">
+              <div key={i} className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between px-6 py-4 text-left"
                 >
                   <span className="font-medium text-foreground pr-4">{faq.q}</span>
                   <span
-                    className={`text-primary transition-transform duration-300 shrink-0 text-xl font-bold ${
+                    className={`text-[#CC1122] transition-transform duration-300 shrink-0 text-xl font-bold ${
                       openFaq === i ? "rotate-45" : ""
                     }`}
                   >
@@ -218,7 +239,7 @@ const AdmissionsPage = () => {
                     openFaq === i ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="px-6 pb-4 text-sm text-muted-foreground leading-relaxed">
+                  <div className="px-6 pb-4 text-sm text-gray-600 leading-relaxed">
                     {faq.a}
                   </div>
                 </div>
@@ -228,29 +249,18 @@ const AdmissionsPage = () => {
         </div>
       </section>
 
-      {/* Student life */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
-            <div className="overflow-hidden rounded-xl shadow-lg group">
-              <img src={studentsGroup} alt="Étudiants IESC" className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700" />
-            </div>
-            <div>
-              <h2 className="text-3xl font-heading font-bold text-foreground mb-4">Rejoignez une communauté dynamique</h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                À l'IESC, vous intégrez une communauté d'étudiants motivés et ambitieux. Notre environnement favorise l'entraide, le travail collaboratif et l'excellence académique.
-              </p>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-accent hover:scale-105 transition-all"
-              >
-                Nous contacter
-                <ArrowRight size={18} />
-              </Link>
-            </div>
-          </div>
+      {/* NOUVELLE SECTION HUMANISATION / AIDE */}
+      <div className="bg-[#1A4B84]/5 py-16 border-t border-[#1A4B84]/10">
+        <div className="container mx-auto px-4 text-center">
+          <HelpCircle className="mx-auto text-[#1A4B84] mb-4" size={48} />
+          <h3 className="text-3xl font-bold text-[#1A4B84] mb-4 font-heading">Besoin d'aide pour votre orientation ?</h3>
+          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">Notre équipe des admissions est disponible pour vous accompagner dans le choix de votre filière et répondre à toutes vos questions.</p>
+          <a href="https://wa.me/242065419861" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full transition-colors shadow-lg hover:scale-105 transform">
+            <Send size={20} />
+            Discuter avec un conseiller sur WhatsApp
+          </a>
         </div>
-      </section>
+      </div>
 
       <Footer />
     </div>
