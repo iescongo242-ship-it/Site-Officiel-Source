@@ -47,9 +47,16 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-[#CC1122] text-white text-center py-3 px-4 text-sm md:text-base font-semibold shadow-md z-50 relative font-sans">
-      📢 GRANDE Journée Portes Ouvertes : <span className="text-yellow-300">Samedi 27 Juin à 08h00</span> ! Pré-inscrivez-vous en ligne (Kit IESC offert aux 50 premiers). 
-      <a href="/admissions" className="underline ml-2 hover:text-gray-200 transition-colors">
+     <div className="bg-[#CC1122] text-white text-center py-3 px-4 text-sm md:text-base font-sans shadow-md z-50 relative leading-relaxed">
+      📢 GRANDE Journée Portes Ouvertes : 
+      <span className="bg-white text-[#CC1122] px-2 py-1 rounded-md mx-2 font-bold shadow-sm">
+        Samedi 27 Juin à 08h00
+      </span> 
+      ! Pré-inscrivez-vous en ligne (Kit IESC offert aux 50 premiers). 
+      <a 
+        href="/admissions" 
+        className="inline-block mt-2 md:mt-0 md:ml-3 border border-white px-4 py-1 rounded-md text-sm font-bold hover:bg-white hover:text-[#CC1122] transition-colors"
+      >
         Réserver ma place !
       </a>
     </div>
