@@ -42,7 +42,7 @@ const ZoomCarousel = ({ images, title, subtitle, badge, interval = 5000 }: ZoomC
         <div className="relative z-30 h-full flex items-center justify-center text-center px-4">
           <div className="max-w-3xl">
             {badge && (
-              <span className="inline-block bg-primary/90 text-primary-foreground text-sm font-semibold px-4 py-1.5 rounded-full mb-4 animate-fade-in">
+              <span className="inline-block bg-iesc-blue/90 text-iesc-blue-foreground text-sm font-semibold px-4 py-1.5 rounded-full mb-4 animate-fade-in">
                 {badge}
               </span>
             )}
@@ -63,7 +63,7 @@ const ZoomCarousel = ({ images, title, subtitle, badge, interval = 5000 }: ZoomC
                 key={i}
                 onClick={() => setCurrent(i)}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  i === current ? "bg-gold w-7" : "bg-primary-foreground/50 hover:bg-primary-foreground/80"
+                  i === current ? "bg-iesc-blue w-7" : "bg-primary-foreground/50 hover:bg-primary-foreground/80"
                 }`}
                 aria-label={`Image ${i + 1}`}
               />

@@ -159,7 +159,7 @@ const CampusPage = () => {
           <p className="text-primary-foreground/80 mb-8 max-w-lg mx-auto">Planifiez une visite ou contactez-nous pour en savoir plus</p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-gold-foreground font-semibold rounded-md hover:brightness-110 hover:scale-105 transition-all"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-iesc-blue text-iesc-blue-foreground font-semibold rounded-md hover:brightness-110 hover:scale-105 transition-all"
           >
             Planifier une visite
             <ArrowRight size={18} />

@@ -84,7 +84,7 @@ const HeroCarousel = () => {
                 </p>
                 <a
                   href={slide.href}
-                  className={`inline-flex items-center px-8 py-4 bg-gold text-gold-foreground font-semibold rounded-md hover:brightness-110 transition-all duration-700 delay-400 ${
+                  className={`inline-flex items-center px-8 py-4 bg-iesc-blue text-iesc-blue-foreground font-semibold rounded-md hover:brightness-110 transition-all duration-700 delay-400 ${
                     i === current ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   }`}
                 >
@@ -119,7 +119,7 @@ const HeroCarousel = () => {
             key={i}
             onClick={() => goTo(i)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              i === current ? "bg-gold w-8" : "bg-primary-foreground/50 hover:bg-primary-foreground/80"
+              i === current ? "bg-iesc-blue w-8" : "bg-primary-foreground/50 hover:bg-primary-foreground/80"
             }`}
             aria-label={`Slide ${i + 1}`}
           />

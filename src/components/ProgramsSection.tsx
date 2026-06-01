@@ -55,7 +55,7 @@ const ProgramsSection = () => {
                 <ul className="space-y-1">
                   {prog.careers.map((c, j) => (
                     <li key={j} className="text-sm text-muted-foreground flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-iesc-blue mt-1.5 shrink-0" />
                       {c}
                     </li>
                   ))}

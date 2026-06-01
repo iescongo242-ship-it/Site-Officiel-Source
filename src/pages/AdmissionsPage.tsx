@@ -87,7 +87,7 @@ const AdmissionsPage = () => {
               
               <div className="space-y-8 mb-12">
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1A4B84]/10 flex items-center justify-center text-[#1A4B84] font-bold text-xl">1</div>
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1A4B84]/10 flex items-center justify-center text-white font-bold text-xl">1</div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Formulaire en ligne</h3>
                     <p className="text-gray-600">Remplissez le formulaire ci-contre pour réserver votre place et tenter de gagner votre Kit IESC.</p>
@@ -95,7 +95,7 @@ const AdmissionsPage = () => {
                 </div>
                 
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1A4B84]/10 flex items-center justify-center text-[#1A4B84] font-bold text-xl">2</div>
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1A4B84]/10 flex items-center justify-center text-white font-bold text-xl">2</div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Frais d'étude de dossier</h3>
                     <p className="text-gray-600">Réglez les frais administratifs de <span className="font-bold text-[#CC1122]">30.000 FCFA</span> de manière sécurisée (Mobile Money accepté).</p>
@@ -103,7 +103,7 @@ const AdmissionsPage = () => {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1A4B84]/10 flex items-center justify-center text-[#1A4B84] font-bold text-xl">3</div>
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1A4B84]/10 flex items-center justify-center text-white font-bold text-xl">3</div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Dépôt du dossier physique</h3>
                     <p className="text-gray-600">Passez sur notre campus avec les documents listés ci-dessous pour finaliser votre inscription.</p>

@@ -47,7 +47,7 @@ const Navbar = () => {
 
   return (
     <>
-     <div className="bg-[#CC1122] text-white text-center py-3 px-4 text-sm md:text-base font-sans shadow-md z-50 relative leading-relaxed">
+     <div className="bg-primary text-white text-center py-3 px-4 text-sm md:text-base font-sans shadow-md z-50 relative leading-relaxed">
       📢 GRANDE Journée Portes Ouvertes : 
       <span className="bg-white text-[#CC1122] px-2 py-1 rounded-md mx-2 font-bold shadow-sm">
         Samedi 27 Juin à 08h00

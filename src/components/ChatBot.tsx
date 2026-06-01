@@ -145,7 +145,7 @@ const ChatBot = () => {
                 En ligne
               </div>
             </div>
-            <Sparkles size={16} className="text-gold opacity-70" />
+            <Sparkles size={16} className="text-iesc-blue opacity-70" />
           </div>
 
           <div className="flex-1 overflow-y-auto p-4 space-y-3 text-sm bg-muted/30">
