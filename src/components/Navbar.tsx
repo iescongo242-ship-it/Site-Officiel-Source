@@ -66,9 +66,9 @@ const Navbar = () => {
           scrolled ? "shadow-lg" : ""
         }`}
       >
-        <div className="container mx-auto flex items-center justify-between h-20 px-4">
+        <div className="container mx-auto flex items-center justify-between py-3 px-4">
           <Link to="/" className="flex items-center gap-3">
-            <img src={logoIesc} alt="Logo IESC" className="h-20 w-auto" />
+            <img src={logoIesc} alt="Logo IESC" className="h-28 w-auto" />
           </Link>
 
           {/* Search bar */}

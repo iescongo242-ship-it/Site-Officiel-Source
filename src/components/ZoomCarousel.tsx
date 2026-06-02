@@ -38,24 +38,31 @@ const ZoomCarousel = ({ images, title, subtitle, badge, interval = 5000 }: ZoomC
             />
           </div>
         ))}
-        <div className="absolute inset-0 hero-gradient z-20" />
+        
+        {/* Le voile noir semi-transparent pour bien lire le texte */}
+        <div className="absolute inset-0 bg-black/60 z-20" />
+        
         <div className="relative z-30 h-full flex items-center justify-center text-center px-4">
           <div className="max-w-3xl">
+            
+            {/* LE BADGE : Fond Rouge, Texte Blanc */}
             {badge && (
-              <span className="inline-block bg-iesc-blue/90 text-iesc-blue-foreground text-sm font-semibold px-4 py-1.5 rounded-full mb-4 animate-fade-in">
+              <span className="inline-block bg-[#CC1122] text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-4 animate-fade-in shadow-md">
                 {badge}
               </span>
             )}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground mb-4 animate-slide-up">
+            
+            {/* LE TITRE ET SOUS-TITRE : Texte Blanc */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-4 animate-slide-up">
               {title}
             </h1>
-            <p className="text-primary-foreground/85 text-lg md:text-xl max-w-2xl mx-auto animate-slide-up-delay">
+            <p className="text-gray-200 text-lg md:text-xl max-w-2xl mx-auto animate-slide-up-delay font-sans">
               {subtitle}
             </p>
           </div>
         </div>
 
-        {/* Dots */}
+        {/* LES POINTS DE NAVIGATION (Dots) : Le point actif est Rouge */}
         {images.length > 1 && (
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
             {images.map((_, i) => (
@@ -63,7 +70,7 @@ const ZoomCarousel = ({ images, title, subtitle, badge, interval = 5000 }: ZoomC
                 key={i}
                 onClick={() => setCurrent(i)}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  i === current ? "bg-iesc-blue w-7" : "bg-primary-foreground/50 hover:bg-primary-foreground/80"
+                  i === current ? "bg-[#CC1122] w-7" : "bg-white/50 hover:bg-white/80"
                 }`}
                 aria-label={`Image ${i + 1}`}
               />
