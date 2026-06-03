@@ -8,10 +8,37 @@ const CheckoutPage = () => {
   const [transactionId, setTransactionId] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handlePayment = (e: React.FormEvent) => {
+ const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Ici on simule l'envoi du numéro de transaction à l'école
     setIsSubmitted(true);
+
+    // 1. On récupère les infos stockées lors de l'étape précédente (Admissions)
+    // On suppose que tu as stocké ces infos dans le localStorage
+    const savedData = JSON.parse(localStorage.getItem("form_admissions") || "{}");
+
+    // 2. On prépare les données à envoyer
+    const dataToSend = {
+      prenom: savedData.prenom,
+      nom: savedData.nom,
+      telephone: savedData.telephone,
+      email: savedData.email,
+      filiere: savedData.filiere,
+      transaction_id: transactionId, // C'est l'ID MTN/Airtel tapé par l'étudiant
+    };
+
+    try {
+      // 3. On appelle notre "Cuisinier" PHP sur LWS
+      const response = await fetch("https://www.iesc-cg.net/api_inscription.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dataToSend),
+      });
+
+      const result = await response.json();
+      console.log("Réponse du serveur :", result);
+    } catch (error) {
+      console.error("Erreur d'envoi :", error);
+    }
   };
 
   return (

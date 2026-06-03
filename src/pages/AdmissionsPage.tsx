@@ -41,11 +41,12 @@ const AdmissionsPage = () => {
     filiere: "",
   });
 
-  // Action lors du clic sur le bouton Valider
-  const handleSubmit = (e: React.FormEvent) => {
+ const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Pré-inscription validée pour :", formData);
-    // Redirection magique vers la page chariot qu'on va créer !
+    // On sauvegarde le formulaire dans le calepin invisible du navigateur
+    localStorage.setItem("form_admissions", JSON.stringify(formData));
+    
+    // Puis on redirige vers le paiement
     navigate("/checkout");
   };
 
