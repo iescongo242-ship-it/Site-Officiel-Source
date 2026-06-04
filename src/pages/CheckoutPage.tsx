@@ -8,21 +8,21 @@ const CheckoutPage = () => {
   const [transactionId, setTransactionId] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
- const handleSubmit = async (e: React.FormEvent) => {
+  // LA CORRECTION EST ICI : on a bien appelé la fonction "handlePayment"
+  const handlePayment = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitted(true);
 
     // 1. On récupère les infos stockées lors de l'étape précédente (Admissions)
-    // On suppose que tu as stocké ces infos dans le localStorage
     const savedData = JSON.parse(localStorage.getItem("form_admissions") || "{}");
 
     // 2. On prépare les données à envoyer
     const dataToSend = {
-      prenom: savedData.prenom,
-      nom: savedData.nom,
-      telephone: savedData.telephone,
-      email: savedData.email,
-      filiere: savedData.filiere,
+      prenom: savedData.prenom || "Inconnu",
+      nom: savedData.nom || "Inconnu",
+      telephone: savedData.telephone || "Inconnu",
+      email: savedData.email || "",
+      filiere: savedData.filiere || "Non renseignée",
       transaction_id: transactionId, // C'est l'ID MTN/Airtel tapé par l'étudiant
     };
 

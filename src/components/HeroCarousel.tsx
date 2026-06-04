@@ -10,21 +10,21 @@ const slides = [
     title: "Excellence Académique",
     subtitle: "Formez-vous aux métiers de demain avec des programmes de qualité internationale",
     cta: "Découvrir nos programmes",
-    href: "#programmes",
+    href: "/formations",
   },
   {
     image: hero2,
     title: "Votre Réussite, Notre Mission",
     subtitle: "Rejoignez une communauté de diplômés qui façonnent l'avenir du Congo",
     cta: "S'inscrire maintenant",
-    href: "#admissions",
+    href: "/admissions",
   },
   {
     image: hero3,
     title: "Un Campus Moderne",
     subtitle: "Des infrastructures adaptées pour un apprentissage optimal et innovant",
     cta: "Visiter le campus",
-    href: "#campus",
+    href: "/campus",
   },
 ];
 
