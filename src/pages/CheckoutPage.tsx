@@ -1,21 +1,52 @@
+import SEO from "@/components/SEO";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CheckCircle2, ShieldCheck, Smartphone, Info } from "lucide-react";
-
 const CheckoutPage = () => {
   const [paymentMethod, setPaymentMethod] = useState("MTN"); // 'MTN' ou 'AIRTEL'
   const [transactionId, setTransactionId] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handlePayment = (e: React.FormEvent) => {
+  // LA CORRECTION EST ICI : on a bien appelé la fonction "handlePayment"
+  const handlePayment = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Ici on simule l'envoi du numéro de transaction à l'école
     setIsSubmitted(true);
+
+    // 1. On récupère les infos stockées lors de l'étape précédente (Admissions)
+    const savedData = JSON.parse(localStorage.getItem("form_admissions") || "{}");
+
+    // 2. On prépare les données à envoyer
+    const dataToSend = {
+      prenom: savedData.prenom || "Inconnu",
+      nom: savedData.nom || "Inconnu",
+      telephone: savedData.telephone || "Inconnu",
+      email: savedData.email || "",
+      filiere: savedData.filiere || "Non renseignée",
+      transaction_id: transactionId, // C'est l'ID MTN/Airtel tapé par l'étudiant
+    };
+
+    try {
+      // 3. On appelle notre "Cuisinier" PHP sur LWS
+      const response = await fetch("https://www.iesc-cg.net/api_inscription.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dataToSend),
+      });
+
+      const result = await response.json();
+      console.log("Réponse du serveur :", result);
+    } catch (error) {
+      console.error("Erreur d'envoi :", error);
+    }
   };
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
+      <SEO 
+        title="Paiement Sécurisé" 
+        description="Finalisez votre pré-inscription à l'IESC en réglant vos frais d'étude de dossier de manière sécurisée via MTN Mobile Money ou Airtel Money." 
+      />
       <Navbar />
 
       {/* EN-TÊTE SÉCURISÉ */}

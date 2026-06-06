@@ -118,9 +118,13 @@ const ChatBot = () => {
 
   return (
     <>
-      <button
+      {/* 
+        CORRECTION DU BUG DE FERMETURE ICI :
+        J'ai changé bottom-24 en bottom-6, et z-50 en z-[60] pour qu'il soit cliquable ! 
+      */}
+     <button
         onClick={() => setOpen(!open)}
-        className={`fixed bottom-24 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 ${
+        className={`fixed bottom-24 right-6 z-[60] w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 ${
           open
             ? "bg-muted text-foreground rotate-0 scale-95"
             : "bg-primary text-primary-foreground hover:scale-110 animate-bounce-subtle"
@@ -131,8 +135,8 @@ const ChatBot = () => {
       </button>
 
       {open && (
-        <div className="fixed bottom-[7rem] right-6 z-50 w-80 sm:w-96 bg-card border border-border rounded-2xl shadow-2xl flex flex-col animate-scale-in overflow-hidden"
-          style={{ maxHeight: "min(28rem, calc(100vh - 10rem))" }}
+        <div className="fixed bottom-40 right-6 z-50 w-80 sm:w-96 bg-card border border-border rounded-2xl shadow-2xl flex flex-col animate-scale-in overflow-hidden"
+          style={{ maxHeight: "min(28rem, calc(100vh - 12rem))" }}
         >
           <div className="bg-primary text-primary-foreground px-5 py-4 flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-primary-foreground/20 flex items-center justify-center">
@@ -145,7 +149,7 @@ const ChatBot = () => {
                 En ligne
               </div>
             </div>
-            <Sparkles size={16} className="text-gold opacity-70" />
+            <Sparkles size={16} className="text-iesc-blue opacity-70" />
           </div>
 
           <div className="flex-1 overflow-y-auto p-4 space-y-3 text-sm bg-muted/30">

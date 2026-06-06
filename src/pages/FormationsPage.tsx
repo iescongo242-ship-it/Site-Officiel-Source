@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
 import {
   Monitor, Users, Calculator, Landmark, Network, Briefcase, Scale, TruckIcon,
@@ -11,7 +12,7 @@ import studentsClassroom from "@/assets/students-classroom.jpg";
 import studentsLab from "@/assets/students-lab.jpg";
 import studentsLibrary from "@/assets/students-library.jpg";
 
-// NOTRE BASE DE DONNÉES CATÉGORISÉE (Style WW-Academy)
+// NOTRE BASE DE DONNÉES CATÉGORISÉE
 const categories = [
   {
     title: "Sciences de Gestion & Droit",
@@ -112,6 +113,10 @@ const FormationsPage = () => {
 
   return (
     <div className="min-h-screen bg-background font-sans">
+       <SEO 
+        title="Nos Formations & Filières" 
+        description="Découvrez nos filières d'excellence à l'IESC : Génie Informatique, Gestion RH, Comptabilité, Banque & Assurance, Logistique et Droit. Diplômes reconnus." 
+      />
       <Navbar />
 
       <ZoomCarousel
@@ -124,7 +129,7 @@ const FormationsPage = () => {
         subtitle="8 filières professionnelles conçues pour former les cadres compétents dont le Congo a besoin"
       />
 
-      {/* Overview stats (Gardé intact) */}
+      {/* STATS : Icônes Rouges, fond Rouge au survol */}
       <section className="py-12 bg-gray-50 border-b border-gray-200">
         <div className="container mx-auto px-4" ref={statsRef}>
           <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto transition-all duration-700 ${statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
@@ -135,10 +140,10 @@ const FormationsPage = () => {
               { icon: CheckCircle, value: "300.000 FCFA", label: "Frais de scolarité L1" },
             ].map((stat, i) => (
               <div key={i} className="text-center group" style={{ transitionDelay: `${i * 100}ms` }}>
-                <div className="w-12 h-12 rounded-full bg-[#1A4B84]/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-[#1A4B84] group-hover:text-white transition-colors duration-300">
-                  <stat.icon size={22} className="text-[#1A4B84] group-hover:text-white transition-colors" />
+                <div className="w-12 h-12 rounded-full bg-[#CC1122]/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-[#CC1122] transition-colors duration-300">
+                  <stat.icon size={22} className="text-[#CC1122] group-hover:text-white transition-colors" />
                 </div>
-                <div className="text-2xl font-heading font-bold text-gray-900">{stat.value}</div>
+                <div className="text-2xl font-heading font-bold text-black">{stat.value}</div>
                 <div className="text-sm text-gray-600">{stat.label}</div>
               </div>
             ))}
@@ -153,9 +158,9 @@ const FormationsPage = () => {
           {categories.map((cat, catIndex) => (
             <div key={catIndex} className="mb-24">
               
-              {/* Titre de la catégorie */}
+              {/* Titre de la catégorie : CORRIGÉ EN NOIR */}
               <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold text-[#1A4B84] font-heading mb-4">{cat.title}</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-black font-heading mb-4">{cat.title}</h2>
                 <p className="text-gray-600 max-w-3xl mx-auto text-lg">{cat.description}</p>
                 <div className="w-20 h-1 bg-[#CC1122] mx-auto mt-6" />
               </div>
@@ -173,18 +178,18 @@ const FormationsPage = () => {
         </div>
       </section>
 
-      {/* CTA FINAL (Corrigé vers /admissions) */}
-      <section className="bg-[#1A4B84] py-16 border-t-4 border-[#CC1122]">
+      {/* CTA FINAL : Fond Rouge, Bouton Bleu (Selon ta consigne) */}
+      <section className="bg-[#CC1122] py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-heading font-bold text-white mb-4">
             Prêt à commencer votre parcours ?
           </h2>
-          <p className="text-blue-100 mb-8 max-w-lg mx-auto">
+          <p className="text-red-100 mb-8 max-w-lg mx-auto">
             Inscrivez-vous dès maintenant et rejoignez la prochaine promotion de l'IESC.
           </p>
           <Link
             to="/admissions"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#CC1122] text-white font-bold rounded-md hover:bg-[#A00D1A] hover:scale-105 transition-all shadow-lg"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#1A4B84] text-white font-bold rounded-md hover:bg-[#113259] hover:scale-105 transition-all shadow-lg"
           >
             Postuler maintenant
             <ArrowRight size={18} />
@@ -197,7 +202,7 @@ const FormationsPage = () => {
   );
 };
 
-// COMPOSANT PROGRAM CARD MIS À JOUR
+// COMPOSANT PROGRAM CARD
 const ProgramCard = ({ prog, index }: { prog: any; index: number }) => {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
@@ -213,11 +218,11 @@ const ProgramCard = ({ prog, index }: { prog: any; index: number }) => {
           {/* Colonne 1 : Titre et Description */}
           <div className="lg:col-span-1 p-8 border-r border-gray-100 flex flex-col">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-[#1A4B84]/10 flex items-center justify-center">
-                <prog.icon size={32} className="text-[#1A4B84]" />
+              <div className="w-16 h-16 rounded-2xl bg-black/5 flex items-center justify-center">
+                <prog.icon size={32} className="text-black" />
               </div>
               <div>
-                <h3 className="text-xl font-heading font-bold text-gray-900 leading-tight">{prog.title}</h3>
+                <h3 className="text-xl font-heading font-bold text-black leading-tight">{prog.title}</h3>
               </div>
             </div>
             
@@ -226,17 +231,17 @@ const ProgramCard = ({ prog, index }: { prog: any; index: number }) => {
             {/* Badges d'information */}
             <div className="space-y-2 mb-8 bg-white p-4 rounded-lg border border-gray-100">
               <div className="flex items-center gap-3 text-sm text-gray-700 font-semibold">
-                <Clock size={16} className="text-[#1A4B84]" /> {prog.duration}
+                <Clock size={16} className="text-black" /> {prog.duration}
               </div>
               <div className="flex items-center gap-3 text-sm text-gray-700 font-semibold">
                 <CheckCircle2 size={16} className="text-[#CC1122]" /> {prog.price} / An
               </div>
             </div>
 
-            {/* Bouton Magique */}
+            {/* Boutons d'inscription : Fond Rouge, Texte Blanc */}
             <Link
               to="/admissions"
-              className="mt-auto inline-flex justify-center items-center gap-2 w-full py-3 bg-[#1A4B84] text-white font-bold rounded-lg hover:bg-[#113259] transition-colors"
+              className="mt-auto inline-flex justify-center items-center gap-2 w-full py-3 bg-[#CC1122] text-white font-bold rounded-lg hover:bg-[#A00D1A] transition-colors shadow-md"
             >
               S'inscrire à cette filière
               <ArrowRight size={16} />
@@ -245,8 +250,8 @@ const ProgramCard = ({ prog, index }: { prog: any; index: number }) => {
 
           {/* Colonne 2 : Modules */}
           <div className="p-8 border-r border-gray-100 bg-white">
-            <h4 className="font-heading font-bold text-[#1A4B84] mb-6 text-sm uppercase tracking-wider flex items-center gap-2">
-              <BookOpen size={18} /> Modules principaux
+            <h4 className="font-heading font-bold text-black mb-6 text-sm uppercase tracking-wider flex items-center gap-2">
+              <BookOpen size={18} className="text-black" /> Modules principaux
             </h4>
             <ul className="space-y-3">
               {prog.modules.map((m: string, j: number) => (
@@ -260,13 +265,13 @@ const ProgramCard = ({ prog, index }: { prog: any; index: number }) => {
 
           {/* Colonne 3 : Débouchés */}
           <div className="p-8 bg-gray-50">
-            <h4 className="font-heading font-bold text-[#1A4B84] mb-6 text-sm uppercase tracking-wider flex items-center gap-2">
-              <Award size={18} /> Débouchés professionnels
+            <h4 className="font-heading font-bold text-black mb-6 text-sm uppercase tracking-wider flex items-center gap-2">
+              <Award size={18} className="text-black" /> Débouchés professionnels
             </h4>
             <ul className="space-y-3">
               {prog.careers.map((c: string, j: number) => (
                 <li key={j} className="flex items-start gap-3 text-sm text-gray-600 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-yellow-400 shrink-0 mt-1.5" />
+                  <span className="w-2 h-2 rounded-full bg-[#CC1122] shrink-0 mt-1.5" />
                   {c}
                 </li>
               ))}

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -14,10 +15,15 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Merriweather", "Georgia", "serif"],
-        body: ["Inter", "system-ui", "sans-serif"],
+        heading: ['"Playfair Display"', "serif"],
+        subheading: ['"Montserrat"', "sans-serif"],
+        sans: ['"Open Sans"', "sans-serif"],
+        body: ['"Open Sans"', "sans-serif"],
       },
       colors: {
+        'iesc-red': '#CC1122',
+        'iesc-black': '#000000',
+        'iesc-blue': '#1A4B84',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -97,5 +103,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

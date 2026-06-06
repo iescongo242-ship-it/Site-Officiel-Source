@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
 import {
   Monitor, BookOpen, Shield, Wifi, Users, MapPin, ArrowRight,
@@ -47,6 +48,10 @@ const CampusPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+       <SEO 
+        title="Notre Campus à Poto-Poto" 
+        description="Étudiez dans un environnement d'excellence au cœur de Brazzaville. Salles climatisées, laboratoires modernes, bibliothèque et Wi-Fi haut débit." 
+      />
       <Navbar />
 
       <ZoomCarousel
@@ -159,7 +164,7 @@ const CampusPage = () => {
           <p className="text-primary-foreground/80 mb-8 max-w-lg mx-auto">Planifiez une visite ou contactez-nous pour en savoir plus</p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-gold-foreground font-semibold rounded-md hover:brightness-110 hover:scale-105 transition-all"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-iesc-blue text-iesc-blue-foreground font-semibold rounded-md hover:brightness-110 hover:scale-105 transition-all"
           >
             Planifier une visite
             <ArrowRight size={18} />

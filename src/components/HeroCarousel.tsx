@@ -10,21 +10,21 @@ const slides = [
     title: "Excellence Académique",
     subtitle: "Formez-vous aux métiers de demain avec des programmes de qualité internationale",
     cta: "Découvrir nos programmes",
-    href: "#programmes",
+    href: "/formations",
   },
   {
     image: hero2,
     title: "Votre Réussite, Notre Mission",
     subtitle: "Rejoignez une communauté de diplômés qui façonnent l'avenir du Congo",
     cta: "S'inscrire maintenant",
-    href: "#admissions",
+    href: "/admissions",
   },
   {
     image: hero3,
     title: "Un Campus Moderne",
     subtitle: "Des infrastructures adaptées pour un apprentissage optimal et innovant",
     cta: "Visiter le campus",
-    href: "#campus",
+    href: "/campus",
   },
 ];
 
@@ -69,27 +69,30 @@ const HeroCarousel = () => {
             <div className="container mx-auto px-4">
               <div className="max-w-2xl">
                 <h1
-                  className={`text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground mb-6 leading-tight transition-all duration-700 ${
+                  className={`text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 leading-tight transition-all duration-700 ${
                     i === current ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   }`}
                 >
                   {slide.title}
                 </h1>
                 <p
-                  className={`text-lg md:text-xl text-primary-foreground/90 mb-8 font-body leading-relaxed transition-all duration-700 delay-200 ${
+                  className={`text-lg md:text-xl text-gray-100 mb-8 font-body leading-relaxed transition-all duration-700 delay-200 ${
                     i === current ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   }`}
                 >
                   {slide.subtitle}
                 </p>
+                
+                {/*  LE BOUTON MODIFIÉ EST ICI  */}
                 <a
                   href={slide.href}
-                  className={`inline-flex items-center px-8 py-4 bg-gold text-gold-foreground font-semibold rounded-md hover:brightness-110 transition-all duration-700 delay-400 ${
+                  className={`inline-flex items-center px-8 py-4 bg-iesc-red text-white font-semibold rounded-md hover:bg-iesc-blue transition-colors duration-500 delay-400 ${
                     i === current ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   }`}
                 >
                   {slide.cta}
                 </a>
+                
               </div>
             </div>
           </div>
@@ -99,27 +102,27 @@ const HeroCarousel = () => {
       {/* Navigation arrows */}
       <button
         onClick={prev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-background/20 backdrop-blur-sm text-primary-foreground hover:bg-background/40 transition-colors"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-iesc-red transition-colors"
         aria-label="Précédent"
       >
         <ChevronLeft size={24} />
       </button>
       <button
         onClick={next}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-background/20 backdrop-blur-sm text-primary-foreground hover:bg-background/40 transition-colors"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-iesc-red transition-colors"
         aria-label="Suivant"
       >
         <ChevronRight size={24} />
       </button>
 
-      {/* Dots */}
+      {/* Dots (Les petits points de navigation) */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              i === current ? "bg-gold w-8" : "bg-primary-foreground/50 hover:bg-primary-foreground/80"
+              i === current ? "bg-iesc-red w-8" : "bg-white/50 hover:bg-white/80"
             }`}
             aria-label={`Slide ${i + 1}`}
           />
