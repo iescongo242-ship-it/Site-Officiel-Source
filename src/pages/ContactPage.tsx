@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { useState, useCallback } from "react";
 import { MapPin, Phone, Mail, Globe, Clock, Send, Facebook, Linkedin, Instagram, AlertCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -107,6 +108,10 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+       <SEO 
+        title="Contactez-nous" 
+        description="Une question sur nos formations ou vos inscriptions ? Contactez l'Institut d'Enseignement Supérieur du Congo (IESC) par téléphone, WhatsApp ou email." 
+      />
       <Navbar />
 
       <ZoomCarousel

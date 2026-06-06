@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
 import {
   Monitor, BookOpen, Shield, Wifi, Users, MapPin, ArrowRight,
@@ -47,6 +48,10 @@ const CampusPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+       <SEO 
+        title="Notre Campus à Poto-Poto" 
+        description="Étudiez dans un environnement d'excellence au cœur de Brazzaville. Salles climatisées, laboratoires modernes, bibliothèque et Wi-Fi haut débit." 
+      />
       <Navbar />
 
       <ZoomCarousel

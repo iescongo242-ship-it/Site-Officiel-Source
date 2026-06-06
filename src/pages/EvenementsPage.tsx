@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ZoomCarousel from "@/components/ZoomCarousel";
@@ -63,6 +64,10 @@ const pastEvents = [
 const EvenementsPage = () => {
   return (
     <div className="min-h-screen bg-background">
+       <SEO 
+        title="Actualités & Vie Étudiante" 
+        description="Plongez dans la vie de campus de l'IESC Brazzaville : actualités, journées portes ouvertes, conférences, hackathons et cérémonies de remise de diplômes." 
+      />
       <Navbar />
 
       <ZoomCarousel

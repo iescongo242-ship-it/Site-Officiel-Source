@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -52,6 +53,10 @@ const AdmissionsPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+       <SEO 
+        title="Inscriptions et Admissions" 
+        description="Rejoignez l'IESC Brazzaville. Remplissez le formulaire de pré-inscription en ligne, découvrez les pièces à fournir et validez votre dossier." 
+      />
       <Navbar />
 
       <ZoomCarousel

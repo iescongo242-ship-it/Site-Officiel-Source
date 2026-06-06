@@ -1,3 +1,4 @@
+import { HelmetProvider } from "react-helmet-async";
 import CheckoutPage from "./pages/CheckoutPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -13,34 +14,36 @@ import EvenementsPage from "./pages/EvenementsPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ChatBot from "./components/ChatBot.tsx";
 import WhatsAppButton from "./components/WhatsAppButton.tsx";
-
 import CookieConsent from "./components/CookieConsent.tsx";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/formations" element={<FormationsPage />} />
-          <Route path="/admissions" element={<AdmissionsPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/campus" element={<CampusPage />} />
-          <Route path="/evenements" element={<EvenementsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <ChatBot />
-        <WhatsAppButton />
-        <CookieConsent />
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  // 👇 Le HelmetProvider englobe tout le site ! 👇
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/formations" element={<FormationsPage />} />
+            <Route path="/admissions" element={<AdmissionsPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/campus" element={<CampusPage />} />
+            <Route path="/evenements" element={<EvenementsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <ChatBot />
+          <WhatsAppButton />
+          <CookieConsent />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;

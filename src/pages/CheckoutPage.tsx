@@ -1,8 +1,8 @@
+import SEO from "@/components/SEO";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CheckCircle2, ShieldCheck, Smartphone, Info } from "lucide-react";
-
 const CheckoutPage = () => {
   const [paymentMethod, setPaymentMethod] = useState("MTN"); // 'MTN' ou 'AIRTEL'
   const [transactionId, setTransactionId] = useState("");
@@ -43,6 +43,10 @@ const CheckoutPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
+      <SEO 
+        title="Paiement Sécurisé" 
+        description="Finalisez votre pré-inscription à l'IESC en réglant vos frais d'étude de dossier de manière sécurisée via MTN Mobile Money ou Airtel Money." 
+      />
       <Navbar />
 
       {/* EN-TÊTE SÉCURISÉ */}

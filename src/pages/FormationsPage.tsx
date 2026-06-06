@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
 import {
   Monitor, Users, Calculator, Landmark, Network, Briefcase, Scale, TruckIcon,
@@ -112,6 +113,10 @@ const FormationsPage = () => {
 
   return (
     <div className="min-h-screen bg-background font-sans">
+       <SEO 
+        title="Nos Formations & Filières" 
+        description="Découvrez nos filières d'excellence à l'IESC : Génie Informatique, Gestion RH, Comptabilité, Banque & Assurance, Logistique et Droit. Diplômes reconnus." 
+      />
       <Navbar />
 
       <ZoomCarousel
