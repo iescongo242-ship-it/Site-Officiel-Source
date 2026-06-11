@@ -104,7 +104,7 @@ const AdmissionsPage = () => {
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1A4B84]/10 flex items-center justify-center text-white font-bold text-xl">2</div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Frais d'étude de dossier</h3>
-                    <p className="text-gray-600">Réglez les frais administratifs de <span className="font-bold text-[#CC1122]">30.000 FCFA</span> de manière sécurisée (Mobile Money accepté).</p>
+                    <p className="text-gray-600">Réglez les frais d'inscription de <span className="font-bold text-[#CC1122]">50.000 FCFA</span> de manière sécurisée (Mobile Money accepté). Ce montant inclut votre Polo officiel IESC.</p>
                   </div>
                 </div>
 
@@ -173,7 +173,7 @@ const AdmissionsPage = () => {
 
                 <button type="submit" className="w-full flex items-center justify-center gap-2 bg-[#CC1122] hover:bg-[#A00D1A] text-white font-bold py-4 px-6 rounded-lg transition-colors mt-6 shadow-md">
                   <CreditCard size={20} />
-                  Valider & Payer (30.000 FCFA)
+                  Valider & Payer l'inscription (50.000 FCFA)
                 </button>
                 <p className="text-xs text-center text-gray-500 mt-3 flex items-center justify-center gap-1">
                   Vous serez redirigé vers notre plateforme de paiement sécurisée.

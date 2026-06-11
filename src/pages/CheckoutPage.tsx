@@ -71,7 +71,7 @@ const CheckoutPage = () => {
               <h2 className="text-xl font-bold text-gray-900 mb-4 border-b pb-4">Résumé</h2>
               <div className="flex justify-between items-center mb-4">
                 <span className="text-gray-600">Frais de dossier</span>
-                <span className="font-bold">30.000 FCFA</span>
+                <span className="font-bold">50.000 FCFA</span>
               </div>
               <div className="flex justify-between items-center mb-4">
                 <span className="text-gray-600">Frais transaction</span>
@@ -79,7 +79,7 @@ const CheckoutPage = () => {
               </div>
               <div className="border-t pt-4 flex justify-between items-center">
                 <span className="text-lg font-bold text-[#1A4B84]">TOTAL</span>
-                <span className="text-2xl font-bold text-[#CC1122]">30.000 FCFA</span>
+                <span className="text-2xl font-bold text-[#CC1122]">50.000 FCFA</span>
               </div>
             </div>
           </div>
@@ -118,7 +118,7 @@ const CheckoutPage = () => {
                   <ol className="space-y-3 text-gray-700">
                     <li>1. Tapez le code <strong>{paymentMethod === "MTN" ? "*105#" : "*128#"}</strong> sur votre téléphone.</li>
                     <li>2. Choisissez l'option "Transfert d'argent".</li>
-                    <li>3. Envoyez <strong className="text-black">30.000 FCFA</strong> au numéro de l'IESC : <strong className="text-xl text-[#CC1122] block mt-1">06 541 98 61</strong></li>
+                    <li>3. Envoyez <strong className="text-black">50.000 FCFA</strong> au numéro de l'IESC : <strong className="text-xl text-[#CC1122] block mt-1">06 541 98 61</strong></li>
                     <li>4. Attendez le SMS de confirmation contenant l'<strong>ID de Transaction</strong>.</li>
                   </ol>
                 </div>
