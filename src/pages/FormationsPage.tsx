@@ -6,11 +6,11 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ZoomCarousel from "@/components/ZoomCarousel"; // <--- N'OUBLIE PAS L'IMPORT !
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import studentsClassroom from "@/assets/students-classroom.jpg";
-// Tu peux importer tes autres images ici plus tard
-
-// NOTRE BASE DE DONNÉES CATÉGORISÉE
+import studentsLab from "@/assets/students-lab.jpg";
+import studentsLibrary from "@/assets/students-library.jpg";
 // NOTRE BASE DE DONNÉES CATÉGORISÉE (Design IESC, Données complètes)
 const categories = [
   {
@@ -118,29 +118,21 @@ const FormationsPage = () => {
       />
       <Navbar />
 
-      {/* 1. NOUVELLE SECTION HERO (VOILE ROUGE) */}
-      <div className="relative h-[60vh] min-h-[450px] w-full flex items-center justify-center overflow-hidden">
-        {/* Le Voile Rouge IESC (Transparence à 80%) */}
-        <div className="absolute inset-0 bg-[#CC1122]/80 z-10 mix-blend-multiply" />
-        <img
-          src={studentsClassroom}
-          alt="Nos Formations"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="relative z-20 text-center px-4 mt-12">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white mb-4 animate-slide-up">
-            Nos Formations
-          </h1>
-          <p className="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto font-sans animate-slide-up-delay">
-            8 filières professionnelles conçues pour former les cadres compétents dont le Congo a besoin
-          </p>
-        </div>
-      </div>
+      {/* LE RETOUR DU ZOOM CAROUSEL COHÉRENT */}
+      <ZoomCarousel
+        images={[
+          { src: studentsClassroom, alt: "Étudiants en salle de cours" },
+          { src: studentsLab, alt: "Laboratoire informatique" },
+          { src: studentsLibrary, alt: "Bibliothèque" },
+        ]}
+        title="Nos Formations"
+        subtitle="8 filières professionnelles conçues pour former les cadres compétents dont le Congo a besoin"
+      />
 
       {/* 2. STATS : DANS DES PETITS CARRÉS AVEC ANIMATION */}
-      <section className="relative z-30 -mt-16 mb-20 px-4">
-        <div className="container mx-auto max-w-6xl" ref={statsRef}>
-          <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 transition-all duration-700 ${statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+       <section className="relative z-30 -mt-20 mb-20 px-4">
+        <div className="container mx-auto" ref={statsRef}>
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto transition-all duration-700 ${statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             {[
               { icon: BookOpen, value: "8", label: "Filières disponibles" },
               { icon: Clock, value: "3-5 ans", label: "Durée de formation" },
@@ -162,6 +154,8 @@ const FormationsPage = () => {
           </div>
         </div>
       </section>
+
+      {/* ... LE RESTE DE TON CODE (Categories, CTA, Footer) RESTE IDENTIQUE ... */}
 
       {/* ALL PROGRAMS CATEGORIZED */}
       <section className="py-10">
