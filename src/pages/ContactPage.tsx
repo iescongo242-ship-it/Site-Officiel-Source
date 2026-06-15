@@ -1,6 +1,6 @@
 import SEO from "@/components/SEO";
 import { useState, useCallback } from "react";
-import { MapPin, Phone, Mail, Globe, Clock, Send, Facebook, Linkedin, Instagram, AlertCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Globe, Clock, Send, Facebook, AlertCircle, CheckCircle2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ZoomCarousel from "@/components/ZoomCarousel";
@@ -101,19 +101,20 @@ const ContactPage = () => {
 
   const InputError = ({ field }: { field: string }) =>
     errors[field] ? (
-      <p className="text-destructive text-xs mt-1 flex items-center gap-1 animate-fade-in">
+      <p className="text-red-500 text-xs mt-1 flex items-center gap-1 animate-fade-in">
         <AlertCircle size={12} /> {errors[field]}
       </p>
     ) : null;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gray-50 font-sans">
        <SEO 
         title="Contactez-nous" 
         description="Une question sur nos formations ou vos inscriptions ? Contactez l'Institut d'Enseignement Supérieur du Congo (IESC) par téléphone, WhatsApp ou email." 
       />
       <Navbar />
 
+      {/* Le ZoomCarousel avec filtre rouge IESC */}
       <ZoomCarousel
         images={[{ src: studentsGroup, alt: "Étudiants IESC" }]}
         title="Contactez-nous"
@@ -128,92 +129,102 @@ const ContactPage = () => {
               formVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            {/* Info */}
+            {/* COLONNE GAUCHE : COORDONNÉES */}
             <div className="lg:col-span-2 space-y-8">
               <div>
-                <h2 className="text-2xl font-heading font-bold text-foreground mb-6">Nos Coordonnées</h2>
-                <div className="w-16 h-1 bg-primary mb-8" />
+                <h2 className="text-3xl font-heading font-bold text-black mb-4">Nos Coordonnées</h2>
+                <div className="w-16 h-1 bg-[#CC1122] mb-8" />
               </div>
 
               <div className="space-y-6">
                 {[
-                  { icon: MapPin, title: "Adresse", content: "112 Avenue De France, Poto-Poto\nEn face de la Station Afric's\nBrazzaville, République du Congo" },
+                  { icon: MapPin, title: "Adresse", content: "112 Avenue De France, Poto-Poto\nEn face de la Station Afric'\nBrazzaville, République du Congo" },
                   { icon: Phone, title: "Téléphone", content: "(+242) 06 541 98 61\n(+242) 05 022 64 08" },
                   { icon: Mail, title: "Email", content: "info@iesc-cg.net" },
                   { icon: Globe, title: "Site Web", content: "www.iesc-cg.net" },
-                  { icon: Clock, title: "Heures d'ouverture", content: "Lundi – Vendredi : 08h00 – 18h00\nSamedi : 08h00 – 13h00" },
+                  { icon: Clock, title: "Heures d'ouverture", content: "Lundi – Vendredi : 08h00 – 19h00\nSamedi : 08h00 – 14h00" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-4 group">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors duration-300">
-                      <item.icon size={22} className="text-primary group-hover:text-primary-foreground transition-colors" />
+                    <div className="w-12 h-12 rounded-full bg-[#CC1122]/10 flex items-center justify-center shrink-0 group-hover:bg-[#CC1122] transition-colors duration-300 shadow-sm">
+                      <item.icon size={22} className="text-[#CC1122] group-hover:text-white transition-colors" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{item.content}</p>
+                      <h3 className="font-semibold text-black mb-1">{item.title}</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line">{item.content}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div>
-                <h3 className="font-semibold text-foreground mb-3">Suivez-nous</h3>
-                <div className="flex gap-3">
-                  {[Facebook, Linkedin, Instagram].map((Icon, i) => (
-                    <a
-                      key={i}
-                      href="#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground hover:scale-110 transition-all duration-300"
-                    >
-                      <Icon size={18} />
-                    </a>
-                  ))}
+              {/* RÉSEAUX SOCIAUX IESC */}
+              <div className="mt-8">
+                <h3 className="font-semibold text-black mb-3">Suivez-nous</h3>
+                <div className="flex gap-4">
+                  {/* Facebook */}
+                  <a
+                    href="https://www.facebook.com/institutiesc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-[#CC1122]/10 flex items-center justify-center text-[#CC1122] hover:bg-[#CC1122] hover:text-white hover:scale-110 transition-all duration-300 shadow-sm"
+                  >
+                    <Facebook size={20} />
+                  </a>
+                  {/* TikTok (SVG Spécial) */}
+                  <a
+                    href="https://www.tiktok.com/@iesc_universite?_r=1&_t=ZS-94vQwjUwwPY"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-[#CC1122]/10 flex items-center justify-center text-[#CC1122] hover:bg-[#CC1122] hover:text-white hover:scale-110 transition-all duration-300 shadow-sm"
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.16z"/></svg>
+                  </a>
                 </div>
               </div>
             </div>
 
-            {/* Form */}
+            {/* COLONNE DROITE : FORMULAIRE */}
             <div className="lg:col-span-3">
-              <div className="bg-card rounded-xl p-8 md:p-10 shadow-lg border border-border hover:shadow-xl transition-shadow duration-300">
-                <h2 className="text-2xl font-heading font-bold text-foreground mb-2">Envoyez-nous un message</h2>
-                <p className="text-muted-foreground mb-8">Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
+              <div className="bg-white rounded-2xl p-8 md:p-10 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                <h2 className="text-2xl font-heading font-bold text-black mb-2">Envoyez-nous un message</h2>
+                <p className="text-gray-500 mb-8 text-sm">Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
 
                 {submitted && (
-                  <div className="mb-6 p-4 rounded-lg bg-green-50 border border-green-200 text-green-800 text-sm animate-fade-in">
-                    ✅ Votre message a été envoyé avec succès ! Nous vous répondrons bientôt.
+                  <div className="mb-6 p-4 rounded-lg bg-green-50 border border-green-200 text-green-800 text-sm animate-fade-in flex items-center gap-2">
+                    <CheckCircle2 className="text-green-600 shrink-0" size={18} /> 
+                    Votre message a été envoyé avec succès ! Nous vous répondrons bientôt.
                   </div>
                 )}
 
                 {rateLimited && (
-                  <div className="mb-6 p-4 rounded-lg bg-destructive/10 border border-destructive/20 text-destructive text-sm animate-fade-in">
-                    ⚠️ Trop de tentatives. Veuillez patienter avant de réessayer.
+                  <div className="mb-6 p-4 rounded-lg bg-red-50 border border-red-200 text-red-800 text-sm animate-fade-in flex items-center gap-2">
+                    <AlertCircle className="text-red-600 shrink-0" size={18} /> 
+                    Trop de tentatives. Veuillez patienter avant de réessayer.
                   </div>
                 )}
 
                 <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-medium text-foreground mb-1.5">Nom complet *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1.5">Nom complet *</label>
                       <input
                         type="text"
                         value={formData.nom}
                         onChange={(e) => handleChange("nom", e.target.value)}
                         maxLength={VALIDATION_LIMITS.NOM_MAX}
-                        className={`w-full px-4 py-3 rounded-md border ${errors.nom ? "border-destructive" : "border-input"} bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all`}
+                        className={`w-full px-4 py-3 rounded-lg border ${errors.nom ? "border-red-500 ring-1 ring-red-500" : "border-gray-300"} bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#1A4B84] transition-all`}
                         placeholder="Votre nom"
                         autoComplete="name"
                       />
                       <InputError field="nom" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-foreground mb-1.5">Email *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1.5">Email *</label>
                       <input
                         type="email"
                         value={formData.email}
                         onChange={(e) => handleChange("email", e.target.value)}
                         maxLength={VALIDATION_LIMITS.EMAIL_MAX}
-                        className={`w-full px-4 py-3 rounded-md border ${errors.email ? "border-destructive" : "border-input"} bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all`}
+                        className={`w-full px-4 py-3 rounded-lg border ${errors.email ? "border-red-500 ring-1 ring-red-500" : "border-gray-300"} bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#1A4B84] transition-all`}
                         placeholder="votre@email.com"
                         autoComplete="email"
                       />
@@ -223,24 +234,24 @@ const ContactPage = () => {
 
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-medium text-foreground mb-1.5">Téléphone</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1.5">Téléphone</label>
                       <input
                         type="tel"
                         value={formData.telephone}
                         onChange={(e) => handleChange("telephone", e.target.value)}
                         maxLength={VALIDATION_LIMITS.TELEPHONE_MAX}
-                        className={`w-full px-4 py-3 rounded-md border ${errors.telephone ? "border-destructive" : "border-input"} bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all`}
+                        className={`w-full px-4 py-3 rounded-lg border ${errors.telephone ? "border-red-500 ring-1 ring-red-500" : "border-gray-300"} bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#1A4B84] transition-all`}
                         placeholder="+242 ..."
                         autoComplete="tel"
                       />
                       <InputError field="telephone" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-foreground mb-1.5">Sujet *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1.5">Sujet *</label>
                       <select
                         value={formData.sujet}
                         onChange={(e) => handleChange("sujet", e.target.value)}
-                        className={`w-full px-4 py-3 rounded-md border ${errors.sujet ? "border-destructive" : "border-input"} bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all`}
+                        className={`w-full px-4 py-3 rounded-lg border ${errors.sujet ? "border-red-500 ring-1 ring-red-500" : "border-gray-300"} bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#1A4B84] transition-all`}
                       >
                         <option value="">Sélectionnez un sujet</option>
                         <option value="inscription">Inscription</option>
@@ -254,24 +265,24 @@ const ContactPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-1.5">Message *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5">Message *</label>
                     <textarea
                       rows={5}
                       value={formData.message}
                       onChange={(e) => handleChange("message", e.target.value)}
                       maxLength={VALIDATION_LIMITS.MESSAGE_MAX}
-                      className={`w-full px-4 py-3 rounded-md border ${errors.message ? "border-destructive" : "border-input"} bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none transition-all`}
+                      className={`w-full px-4 py-3 rounded-lg border ${errors.message ? "border-red-500 ring-1 ring-red-500" : "border-gray-300"} bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#1A4B84] resize-none transition-all`}
                       placeholder="Écrivez votre message ici..."
                     />
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center mt-1">
                       <InputError field="message" />
-                      <span className="text-xs text-muted-foreground ml-auto">{formData.message.length}/{VALIDATION_LIMITS.MESSAGE_MAX}</span>
+                      <span className="text-xs text-gray-400 ml-auto">{formData.message.length}/{VALIDATION_LIMITS.MESSAGE_MAX}</span>
                     </div>
                   </div>
 
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-accent hover:scale-105 transition-all"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#CC1122] text-white font-bold rounded-lg hover:bg-[#A00D1A] hover:scale-105 transition-all shadow-md mt-4"
                   >
                     <Send size={18} />
                     Envoyer le message
@@ -283,17 +294,17 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Map */}
-      <section className="section-alt py-16">
+      {/* Map (La carte interactive) */}
+      <section className="bg-white py-16 border-t border-gray-100">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-heading font-bold text-foreground mb-4">Nous Trouver</h2>
-          <div className="w-16 h-1 bg-primary mx-auto mb-8" />
-          <div className="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg border border-border hover:shadow-xl transition-shadow duration-300">
+          <h2 className="text-3xl font-heading font-bold text-black mb-4">Nous Trouver</h2>
+          <div className="w-16 h-1 bg-[#CC1122] mx-auto mb-10" />
+          <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
             <iframe
               title="Localisation IESC"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15919.5!2d15.2832!3d-4.2634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a6a33c46f555555%3A0x12345!2sPoto-Poto%2C%20Brazzaville!5e0!3m2!1sfr!2scg!4v1"
               width="100%"
-              height="400"
+              height="450"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"

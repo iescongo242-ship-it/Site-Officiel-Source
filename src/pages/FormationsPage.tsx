@@ -40,7 +40,7 @@ const categories = [
       {
         id: "banque-finance",
         icon: Landmark,
-        title: "Banque, Assurance & Finances",
+        title: "Banque, Assurance | Finances",
         description: "Acquérez les compétences nécessaires pour évoluer dans le secteur bancaire et les assurances.",
         duration: "3 ans (Licence) / 5 ans (Master)",
         price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
@@ -60,7 +60,7 @@ const categories = [
       {
         id: "management",
         icon: Briefcase,
-        title: "Management & Entrepreneuriat",
+        title: "Management | Entrepreneuriat",
         description: "Développez vos compétences en gestion d'entreprise, leadership et création de projets.",
         duration: "3 ans (Licence) / 5 ans (Master)",
         price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
