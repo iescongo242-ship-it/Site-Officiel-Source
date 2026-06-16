@@ -41,8 +41,10 @@ const ContactPage = () => {
       newErrors.email = "Veuillez entrer un email valide.";
     }
 
-    if (formData.telephone && !isValidPhone(formData.telephone)) {
-      newErrors.telephone = "Veuillez entrer un numéro de téléphone valide.";
+   // NOUVEAU VIGILE : Accepte le +, les chiffres et les espaces (de 8 à 18 caractères)
+    const phoneRegex = /^\+?[0-9\s\-]{8,18}$/;
+    if (formData.telephone && !phoneRegex.test(formData.telephone)) {
+      newErrors.telephone = "Veuillez entrer un numéro valide (ex: 06 123 45 67 ou +242...).";
     }
 
     if (!formData.sujet) {
@@ -70,7 +72,7 @@ const ContactPage = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validateForm()) return;
@@ -80,25 +82,31 @@ const ContactPage = () => {
       setTimeout(() => setRateLimited(false), 5000);
       return;
     }
+    
+    try {
+      // ON ENVOIE LES VRAIES DONNÉES AU SERVEUR LWS
+      const response = await fetch("https://www.iesc-cg.net/api_contact.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        //  CORRECTION ICI : On utilise formData au lieu de sanitizedData 
+        body: JSON.stringify(formData), 
+      });
 
-    // Sanitize avant envoi
-    const sanitizedData = {
-      nom: sanitizeInput(formData.nom),
-      email: sanitizeInput(formData.email),
-      telephone: sanitizeInput(formData.telephone),
-      sujet: sanitizeInput(formData.sujet),
-      message: sanitizeInput(formData.message),
-    };
-
-    // TODO: envoyer sanitizedData au backend
-    console.info("Formulaire soumis (données sanitisées)");
-
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setFormData({ nom: "", email: "", telephone: "", sujet: "", message: "" });
-    setErrors({});
+      const result = await response.json();
+      
+      if (result.message === "Succes") {
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 4000);
+        setFormData({ nom: "", email: "", telephone: "", sujet: "", message: "" });
+        setErrors({});
+      } else {
+        alert("Une erreur s'est produite lors de l'envoi.");
+      }
+    } catch (error) {
+      console.error("Erreur de connexion :", error);
+      alert("Impossible de contacter le serveur.");
+    }
   };
-
   const InputError = ({ field }: { field: string }) =>
     errors[field] ? (
       <p className="text-red-500 text-xs mt-1 flex items-center gap-1 animate-fade-in">
