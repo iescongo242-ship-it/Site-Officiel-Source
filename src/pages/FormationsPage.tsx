@@ -6,16 +6,15 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ZoomCarousel from "@/components/ZoomCarousel";
+import ZoomCarousel from "@/components/ZoomCarousel"; // <--- N'OUBLIE PAS L'IMPORT !
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import studentsClassroom from "@/assets/students-classroom.jpg";
 import studentsLab from "@/assets/students-lab.jpg";
 import studentsLibrary from "@/assets/students-library.jpg";
-
-// NOTRE BASE DE DONNÉES CATÉGORISÉE
+// NOTRE BASE DE DONNÉES CATÉGORISÉE (Design IESC, Données complètes)
 const categories = [
   {
-    title: "Sciences de Gestion & Droit",
+    title: "Sciences de Gestion | Droit",
     description: "Des formations conçues pour former les futurs cadres et dirigeants d'entreprises. Les talents en gestion sont cruciaux pour la croissance de toute organisation.",
     programs: [
       {
@@ -24,7 +23,7 @@ const categories = [
         title: "Gestion des Ressources Humaines",
         description: "Maîtrisez les techniques de management du capital humain, du recrutement à la gestion des carrières.",
         duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "300.000 FCFA",
+        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Responsable RH", "Chargé de recrutement", "Gestionnaire de paie", "Responsable formation"],
         modules: ["Droit du travail", "Gestion des compétences", "Recrutement et intégration", "Paie"],
       },
@@ -34,17 +33,17 @@ const categories = [
         title: "Comptabilité",
         description: "Formation approfondie en comptabilité générale, analytique, fiscalité et audit pour devenir un expert des chiffres.",
         duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "300.000 FCFA",
+        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Comptable", "Contrôleur de gestion", "Responsable financier", "Auditeur junior"],
         modules: ["Comptabilité générale", "Fiscalité", "Audit comptable", "Finance d'entreprise"],
       },
       {
         id: "banque-finance",
         icon: Landmark,
-        title: "Banque, Assurance & Finances",
+        title: "Banque, Assurance | Finances",
         description: "Acquérez les compétences nécessaires pour évoluer dans le secteur bancaire et les assurances.",
         duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "300.000 FCFA",
+        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Chargé de clientèle", "Agent d'assurance", "Analyste financier", "Conseiller financier"],
         modules: ["Économie monétaire", "Techniques bancaires", "Assurance et prévoyance", "Maths financières"],
       },
@@ -54,17 +53,17 @@ const categories = [
         title: "Management de la Chaîne Logistique",
         description: "Optimisez les flux de marchandises et d'informations au sein des entreprises grâce à la supply chain.",
         duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "300.000 FCFA",
+        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Responsable logistique", "Supply Chain Manager", "Gestionnaire de stocks", "Planificateur"],
         modules: ["Gestion des stocks", "Transport", "Approvisionnement", "Logistique internationale"],
       },
       {
         id: "management",
         icon: Briefcase,
-        title: "Management & Entrepreneuriat",
+        title: "Management | Entrepreneuriat",
         description: "Développez vos compétences en gestion d'entreprise, leadership et création de projets.",
         duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "300.000 FCFA",
+        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Entrepreneur", "Manager d'entreprise", "Chef de projet", "Business Developer"],
         modules: ["Management stratégique", "Création d'entreprise", "Marketing", "Leadership"],
       },
@@ -74,7 +73,7 @@ const categories = [
         title: "Droit",
         description: "Formation juridique complète couvrant le droit des affaires, civil et du travail.",
         duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "300.000 FCFA",
+        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Juriste d'entreprise", "Assistant juridique", "Consultant juridique", "Clerc d'avocat"],
         modules: ["Droit civil", "Droit des affaires", "Droit du travail", "Droit pénal"],
       },
@@ -88,21 +87,21 @@ const categories = [
         id: "genie-informatique",
         icon: Monitor,
         title: "Génie Informatique",
-        description: "Formation complète en développement logiciel, bases de données et technologies web et mobile.",
+        description: "Formation complète en développement logiciel, administration systèmes et réseaux, bases de données et technologies web et mobile.",
         duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "300.000 FCFA",
-        careers: ["Développeur web et mobile", "Administrateur systèmes", "Analyste programmeur", "Chef de projet IT"],
-        modules: ["Algorithmique", "Bases de données", "Développement web", "Réseaux informatiques"],
+        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
+        careers: ["Développeur web et mobile", "Développeur logiciel", "Administrateur systèmes", "Analyste programmeur", "Chef de projet informatique", "Consultant en transformation digitale"],
+        modules: ["Algorithmique et programmation", "Bases de données", "Développement web (HTML, CSS, JS)", "Réseaux informatiques", "Systèmes d'exploitation", "Génie logiciel", "Sécurité informatique", "Intelligence artificielle"],
       },
       {
         id: "reseaux-telecom",
         icon: Network,
-        title: "Réseaux et Télécommunications",
+        title: "Réseaux et Télécommunication",
         description: "Devenez expert en infrastructure réseau, cybersécurité et systèmes de télécommunication modernes.",
         duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "300.000 FCFA",
-        careers: ["Administrateur réseaux", "Technicien télécoms", "Responsable infrastructure IT", "Consultant cybersécurité"],
-        modules: ["Architecture réseau", "Protocoles TCP/IP", "Sécurité des réseaux", "Télécommunications"],
+        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
+        careers: ["Administrateur réseaux", "Technicien télécoms", "Responsable infrastructure IT", "Consultant en cybersécurité", "Support technique réseaux", "Technicien réseaux"],
+        modules: ["Architecture réseau", "Protocoles TCP/IP", "Sécurité des réseaux", "Télécommunications", "Administration Linux/Windows Server", "Cloud computing"],
       },
     ]
   }
@@ -112,13 +111,14 @@ const FormationsPage = () => {
   const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation();
 
   return (
-    <div className="min-h-screen bg-background font-sans">
+    <div className="min-h-screen bg-gray-50 font-sans">
        <SEO 
         title="Nos Formations & Filières" 
         description="Découvrez nos filières d'excellence à l'IESC : Génie Informatique, Gestion RH, Comptabilité, Banque & Assurance, Logistique et Droit. Diplômes reconnus." 
       />
       <Navbar />
 
+      {/* LE RETOUR DU ZOOM CAROUSEL COHÉRENT */}
       <ZoomCarousel
         images={[
           { src: studentsClassroom, alt: "Étudiants en salle de cours" },
@@ -129,36 +129,42 @@ const FormationsPage = () => {
         subtitle="8 filières professionnelles conçues pour former les cadres compétents dont le Congo a besoin"
       />
 
-      {/* STATS : Icônes Rouges, fond Rouge au survol */}
-      <section className="py-12 bg-gray-50 border-b border-gray-200">
-        <div className="container mx-auto px-4" ref={statsRef}>
-          <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto transition-all duration-700 ${statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+      {/* 2. STATS : DANS DES PETITS CARRÉS AVEC ANIMATION */}
+       <section className="relative z-30 -mt-20 mb-20 px-4">
+        <div className="container mx-auto" ref={statsRef}>
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto transition-all duration-700 ${statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             {[
               { icon: BookOpen, value: "8", label: "Filières disponibles" },
               { icon: Clock, value: "3-5 ans", label: "Durée de formation" },
               { icon: Award, value: "100%", label: "Stage garanti" },
-              { icon: CheckCircle, value: "300.000 FCFA", label: "Frais de scolarité L1" },
+              { icon: CheckCircle, value: "Dès 50.000 F", label: "par mois (Scolarité)" },
             ].map((stat, i) => (
-              <div key={i} className="text-center group" style={{ transitionDelay: `${i * 100}ms` }}>
-                <div className="w-12 h-12 rounded-full bg-[#CC1122]/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-[#CC1122] transition-colors duration-300">
-                  <stat.icon size={22} className="text-[#CC1122] group-hover:text-white transition-colors" />
+              <div 
+                key={i} 
+                className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 text-center group hover:-translate-y-2 hover:shadow-xl transition-all duration-300" 
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
+                <div className="w-16 h-16 rounded-full bg-[#CC1122]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#CC1122] transition-all duration-300 shadow-sm group-hover:shadow-md group-hover:scale-110">
+                  <stat.icon size={28} className="text-[#CC1122] group-hover:text-white transition-colors duration-300" />
                 </div>
-                <div className="text-2xl font-heading font-bold text-black">{stat.value}</div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
+                <div className="text-2xl md:text-3xl font-heading font-bold text-[#CC1122] mb-1">{stat.value}</div>
+                <div className="text-xs md:text-sm font-semibold text-gray-600 uppercase tracking-wider">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ... LE RESTE DE TON CODE (Categories, CTA, Footer) RESTE IDENTIQUE ... */}
+
       {/* ALL PROGRAMS CATEGORIZED */}
-      <section className="py-20">
+      <section className="py-10">
         <div className="container mx-auto px-4">
           
           {categories.map((cat, catIndex) => (
             <div key={catIndex} className="mb-24">
               
-              {/* Titre de la catégorie : CORRIGÉ EN NOIR */}
+              {/* Titre de la catégorie */}
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-black font-heading mb-4">{cat.title}</h2>
                 <p className="text-gray-600 max-w-3xl mx-auto text-lg">{cat.description}</p>
@@ -178,7 +184,7 @@ const FormationsPage = () => {
         </div>
       </section>
 
-      {/* CTA FINAL : Fond Rouge, Bouton Bleu (Selon ta consigne) */}
+     {/* CTA FINAL : De retour au Fond Rouge et Bouton Bleu ! */}
       <section className="bg-[#CC1122] py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-heading font-bold text-white mb-4">
@@ -202,7 +208,7 @@ const FormationsPage = () => {
   );
 };
 
-// COMPOSANT PROGRAM CARD
+// COMPOSANT PROGRAM CARD MIS À JOUR (Mêmes icônes que les stats)
 const ProgramCard = ({ prog, index }: { prog: any; index: number }) => {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
@@ -216,13 +222,15 @@ const ProgramCard = ({ prog, index }: { prog: any; index: number }) => {
         <div className="grid lg:grid-cols-3 gap-0">
           
           {/* Colonne 1 : Titre et Description */}
-          <div className="lg:col-span-1 p-8 border-r border-gray-100 flex flex-col">
+          <div className="lg:col-span-1 p-8 border-r border-gray-100 flex flex-col group cursor-default">
+            
+            {/* 3. L'ICÔNE ET LE TITRE : EXACTEMENT LE MÊME DESIGN QUE LES STATS */}
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-black/5 flex items-center justify-center">
-                <prog.icon size={32} className="text-black" />
+              <div className="w-16 h-16 rounded-2xl bg-[#CC1122]/10 flex items-center justify-center group-hover:bg-[#CC1122] transition-all duration-300 shadow-sm group-hover:shadow-md group-hover:scale-110 shrink-0">
+                <prog.icon size={32} className="text-[#CC1122] group-hover:text-white transition-colors duration-300" />
               </div>
               <div>
-                <h3 className="text-xl font-heading font-bold text-black leading-tight">{prog.title}</h3>
+                <h3 className="text-xl font-heading font-bold text-black leading-tight group-hover:text-[#CC1122] transition-colors">{prog.title}</h3>
               </div>
             </div>
             
@@ -234,14 +242,14 @@ const ProgramCard = ({ prog, index }: { prog: any; index: number }) => {
                 <Clock size={16} className="text-black" /> {prog.duration}
               </div>
               <div className="flex items-center gap-3 text-sm text-gray-700 font-semibold">
-                <CheckCircle2 size={16} className="text-[#CC1122]" /> {prog.price} / An
+                <CheckCircle2 size={16} className="text-[#CC1122]" /> {prog.price}
               </div>
             </div>
 
-            {/* Boutons d'inscription : Fond Rouge, Texte Blanc */}
+            {/* Boutons d'inscription */}
             <Link
               to="/admissions"
-              className="mt-auto inline-flex justify-center items-center gap-2 w-full py-3 bg-[#CC1122] text-white font-bold rounded-lg hover:bg-[#A00D1A] transition-colors shadow-md"
+              className="mt-auto inline-flex justify-center items-center gap-2 w-full py-3 bg-[#CC1122] text-white font-bold rounded-lg hover:bg-red-800 transition-colors shadow-md"
             >
               S'inscrire à cette filière
               <ArrowRight size={16} />
@@ -264,7 +272,7 @@ const ProgramCard = ({ prog, index }: { prog: any; index: number }) => {
           </div>
 
           {/* Colonne 3 : Débouchés */}
-          <div className="p-8 bg-gray-50">
+          <div className="p-8 bg-white">
             <h4 className="font-heading font-bold text-black mb-6 text-sm uppercase tracking-wider flex items-center gap-2">
               <Award size={18} className="text-black" /> Débouchés professionnels
             </h4>

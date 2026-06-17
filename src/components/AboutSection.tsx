@@ -72,7 +72,7 @@ const AboutSection = () => {
             { value: "8+", label: "Filières" },
             { value: "200+", label: "Étudiants" },
             { value: "100%", label: "Stage garanti" },
-            { value: "300.000", label: "FCFA en L1" },
+            { value: "Dès 50.000", label: "FCFA en L1/L2 (60.000 en L3)" },
           ].map((stat, i) => (
             <div
               key={i}

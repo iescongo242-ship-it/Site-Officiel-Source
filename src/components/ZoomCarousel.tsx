@@ -20,7 +20,8 @@ const ZoomCarousel = ({ images, title, subtitle, badge, interval = 5000 }: ZoomC
   }, [images.length, interval]);
 
   return (
-    <section className="pt-20 relative">
+    // CORRECTION DU VIDE ICI : on a enlevé le pt-20 !
+    <section className="relative">
       <div className="relative h-[55vh] min-h-[420px] overflow-hidden">
         {images.map((img, i) => (
           <div
@@ -39,20 +40,18 @@ const ZoomCarousel = ({ images, title, subtitle, badge, interval = 5000 }: ZoomC
           </div>
         ))}
         
-        {/* Le voile noir semi-transparent pour bien lire le texte */}
-        <div className="absolute inset-0 bg-black/60 z-20" />
+        {/* LE FILTRE MAGIQUE : Le hero-gradient (Noir vers Rouge IESC) */}
+        <div className="absolute inset-0 hero-gradient z-20" />
         
         <div className="relative z-30 h-full flex items-center justify-center text-center px-4">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mt-12">
             
-            {/* LE BADGE : Fond Rouge, Texte Blanc */}
             {badge && (
               <span className="inline-block bg-[#CC1122] text-white text-sm font-semibold px-4 py-1.5 rounded-full mb-4 animate-fade-in shadow-md">
                 {badge}
               </span>
             )}
             
-            {/* LE TITRE ET SOUS-TITRE : Texte Blanc */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-4 animate-slide-up">
               {title}
             </h1>
@@ -62,7 +61,7 @@ const ZoomCarousel = ({ images, title, subtitle, badge, interval = 5000 }: ZoomC
           </div>
         </div>
 
-        {/* LES POINTS DE NAVIGATION (Dots) : Le point actif est Rouge */}
+        {/* Dots */}
         {images.length > 1 && (
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
             {images.map((_, i) => (

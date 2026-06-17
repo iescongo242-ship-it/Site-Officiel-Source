@@ -63,7 +63,7 @@ const pastEvents = [
 
 const EvenementsPage = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gray-50 font-sans">
        <SEO 
         title="Actualités & Vie Étudiante" 
         description="Plongez dans la vie de campus de l'IESC Brazzaville : actualités, journées portes ouvertes, conférences, hackathons et cérémonies de remise de diplômes." 
@@ -76,21 +76,21 @@ const EvenementsPage = () => {
           { src: eventGraduation, alt: "Remise de diplômes" },
           { src: eventConference, alt: "Conférence" },
         ]}
-        title="Actualités & Vie Étudiante"
+        title="Actualités | Vie Étudiante"
         subtitle="Découvrez les temps forts de l'IESC : notre participation aux grands événements, nos conférences, et la vie sur le campus."
         badge="Le Magazine de l'IESC"
       />
 
       {/* Upcoming Events / Agenda */}
-      <section className="py-20">
+      <section className="py-20 bg-white border-b border-gray-100">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">Agenda</span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mt-2">Événements à Venir</h2>
-            <div className="w-16 h-1 bg-primary mx-auto mt-4 rounded-full" />
+          <div className="text-center mb-16">
+            <span className="text-[#CC1122] font-semibold text-sm uppercase tracking-wider">Agenda</span>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mt-2 text-black">Événements à Venir</h2>
+            <div className="w-20 h-1 bg-[#CC1122] mx-auto mt-6" />
           </div>
 
-          <div className="space-y-10">
+          <div className="space-y-12 max-w-6xl mx-auto">
             {upcomingEvents.map((event, i) => (
               <EventCard key={i} event={event} index={i} />
             ))}
@@ -99,31 +99,31 @@ const EvenementsPage = () => {
       </section>
 
       {/* Past Events / Actualités (MTN, etc.) */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">À la une</span>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mt-2">Dernières Actualités</h2>
-            <div className="w-16 h-1 bg-primary mx-auto mt-4 rounded-full" />
+          <div className="text-center mb-16">
+            <span className="text-[#CC1122] font-semibold text-sm uppercase tracking-wider">À la une</span>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mt-2 text-black">Dernières Actualités</h2>
+            <div className="w-20 h-1 bg-[#CC1122] mx-auto mt-6" />
           </div>
 
           <PastEventsGrid />
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      {/* CTA (Revu avec les couleurs institutionnelles) */}
+      <section className="py-20 bg-[#CC1122] text-white">
         <div className="container mx-auto px-4 text-center">
-          <Users size={48} className="mx-auto mb-6 opacity-80" />
+          <Users size={48} className="mx-auto mb-6 opacity-90 text-white" />
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">Restez Informé</h2>
-          <p className="text-primary-foreground/80 max-w-lg mx-auto mb-8">
+          <p className="text-red-100 max-w-lg mx-auto mb-8 text-lg">
             Suivez-nous sur les réseaux sociaux pour ne manquer aucune actualité de l'IESC.
           </p>
           <a
             href="https://www.facebook.com/institutiesc"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-background text-foreground font-semibold px-8 py-3 rounded-lg hover:bg-background/90 hover:scale-105 transition-all"
+            className="inline-flex items-center gap-2 bg-[#1A4B84] text-white font-bold px-8 py-4 rounded-lg hover:bg-[#113259] hover:scale-105 transition-all shadow-lg"
           >
             Suivez-nous sur Facebook <ArrowRight size={18} />
           </a>
@@ -141,30 +141,31 @@ const EventCard = ({ event, index }: { event: typeof upcomingEvents[0]; index: n
   return (
     <div
       ref={ref}
-      className={`flex flex-col ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} gap-8 items-center bg-card rounded-2xl overflow-hidden shadow-lg border border-border transition-all duration-700 hover:shadow-xl ${
+      className={`flex flex-col ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} gap-0 items-center bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 transition-all duration-700 hover:shadow-xl ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
-      <div className="md:w-1/2 h-64 md:h-80 overflow-hidden group">
+      <div className="md:w-1/2 h-72 md:h-96 w-full overflow-hidden group">
         <img src={event.image} alt={event.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
       </div>
-      <div className="md:w-1/2 p-8">
-        <span className="inline-block bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full mb-3">
+      <div className="md:w-1/2 p-8 md:p-12 w-full">
+        <span className="inline-block bg-[#CC1122]/10 text-[#CC1122] text-xs font-bold px-4 py-1.5 rounded-full mb-4">
           {event.category}
         </span>
-        <h3 className="font-heading text-2xl font-bold mb-3">{event.title}</h3>
-        <p className="text-muted-foreground mb-5 leading-relaxed">{event.description}</p>
-        <div className="space-y-2 text-sm text-muted-foreground">
-          <div className="flex items-center gap-2">
-            <Calendar size={16} className="text-primary" />
+        <h3 className="font-heading text-2xl md:text-3xl font-bold text-black mb-4 leading-tight">{event.title}</h3>
+        <p className="text-gray-600 mb-8 leading-relaxed text-lg">{event.description}</p>
+        
+        <div className="space-y-3 text-sm text-gray-700 font-semibold bg-gray-50 p-6 rounded-xl border border-gray-100">
+          <div className="flex items-center gap-3">
+            <Calendar size={18} className="text-[#CC1122]" />
             {event.date}
           </div>
-          <div className="flex items-center gap-2">
-            <Clock size={16} className="text-primary" />
+          <div className="flex items-center gap-3">
+            <Clock size={18} className="text-[#CC1122]" />
             {event.time}
           </div>
-          <div className="flex items-center gap-2">
-            <MapPin size={16} className="text-primary" />
+          <div className="flex items-center gap-3">
+            <MapPin size={18} className="text-[#CC1122]" />
             {event.location}
           </div>
         </div>
@@ -177,23 +178,23 @@ const PastEventsGrid = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <div ref={ref} className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+    <div ref={ref} className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
       {pastEvents.map((event, i) => (
         <div
           key={i}
-          className={`bg-card rounded-xl p-6 border border-border hover:shadow-lg transition-all duration-500 group ${
+          className={`bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-500 group cursor-default shadow-sm ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
           style={{ transitionDelay: `${i * 100}ms` }}
         >
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
-              <Calendar size={18} className="text-primary group-hover:text-primary-foreground transition-colors" />
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-14 h-14 rounded-xl bg-[#CC1122]/10 flex items-center justify-center group-hover:bg-[#CC1122] transition-colors duration-300 shadow-sm shrink-0">
+              <Calendar size={24} className="text-[#CC1122] group-hover:text-white transition-colors" />
             </div>
-            <span className="text-sm font-semibold text-primary">{event.date}</span>
+            <span className="text-sm font-bold text-[#CC1122] uppercase tracking-wider">{event.date}</span>
           </div>
-          <h3 className="font-heading text-lg font-bold mb-2">{event.title}</h3>
-          <p className="text-muted-foreground text-sm">{event.description}</p>
+          <h3 className="font-heading text-xl font-bold text-black mb-3 leading-tight group-hover:text-[#CC1122] transition-colors">{event.title}</h3>
+          <p className="text-gray-600 leading-relaxed">{event.description}</p>
         </div>
       ))}
     </div>

@@ -57,7 +57,8 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading text-[#000000] font-bold;
+    /* CORRECTION ICI : text-black au lieu de text-[#000000] */
+    @apply font-heading text-black font-bold;
   }
 }
 

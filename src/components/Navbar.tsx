@@ -46,24 +46,29 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <>
-     <div className="bg-primary text-white text-center py-3 px-4 text-sm md:text-base font-sans shadow-md z-50 relative leading-relaxed">
-      📢 GRANDE Journée Portes Ouvertes : 
-      <span className="bg-white text-[#CC1122] px-2 py-1 rounded-md mx-2 font-bold shadow-sm">
-        Samedi 27 Juin à 08h00
-      </span> 
-      ! Pré-inscrivez-vous en ligne (Kit IESC offert aux 50 premiers). 
-      <a 
-        href="/admissions" 
-        className="inline-block mt-2 md:mt-0 md:ml-3 border border-white px-4 py-1 rounded-md text-sm font-bold hover:bg-white hover:text-[#CC1122] transition-colors"
-      >
-        Réserver ma place !
-      </a>
-    </div>
-       
+    /* ON EMBALLE TOUT DANS UN HEADER COLLANT (Sticky) */
+    <header className="sticky top-0 left-0 right-0 z-50 w-full flex flex-col shadow-sm">
+      
+      {/* DÉBUT DE LA BANNIÈRE JPO */}
+      <div className="bg-[#CC1122] text-white text-center py-3 px-4 text-sm md:text-base font-sans leading-relaxed">
+        📢 GRANDE Journée Portes Ouvertes : 
+        <span className="bg-white text-[#CC1122] px-2 py-1 rounded-md mx-2 font-bold shadow-sm">
+          Samedi 27 Juin à 08h00
+        </span> 
+        ! Pré-inscrivez-vous en ligne (Kit IESC offert aux 50 premiers). 
+        <Link 
+          to="/admissions" 
+          className="inline-block mt-2 md:mt-0 md:ml-3 border border-white px-4 py-1 rounded-md text-sm font-bold hover:bg-white hover:text-[#CC1122] transition-colors"
+        >
+          Réserver ma place !
+        </Link>
+      </div>
+      {/* FIN DE LA BANNIÈRE JPO */}
+
+      {/* LA NAVBAR (Le menu blanc) - Plus besoin de sticky car le header s'en charge ! */}
       <nav
-        className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-background ${
-          scrolled ? "shadow-lg" : ""
+        className={`transition-all duration-300 bg-white ${
+          scrolled ? "shadow-md" : ""
         }`}
       >
         <div className="container mx-auto flex items-center justify-between py-3 px-4">
@@ -201,7 +206,7 @@ const Navbar = () => {
           </div>
         )}
       </nav>
-    </>
+    </header>
   );
 };
 
