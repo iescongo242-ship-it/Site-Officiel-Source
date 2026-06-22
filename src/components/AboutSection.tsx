@@ -69,7 +69,7 @@ const AboutSection = () => {
           }`}
         >
           {[
-            { value: "8+", label: "Filières" },
+            { value: "11+", label: "Filières" },
             { value: "200+", label: "Étudiants" },
             { value: "100%", label: "Stage garanti" },
             { value: "Dès 50.000", label: "FCFA en L1/L2 (60.000 en L3)" },

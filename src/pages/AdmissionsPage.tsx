@@ -60,7 +60,7 @@ const AdmissionsPage = () => {
           { src: studentsAdmission, alt: "Admissions IESC" },
           { src: studentsGroup, alt: "Étudiants IESC" },
         ]}
-        title="Admissions | Inscriptions"
+        title="Admissions et Inscriptions"
         subtitle="Rejoignez l'IESC et construisez votre avenir professionnel. Pré-inscrivez-vous en ligne en 2 minutes."
       />
 
@@ -157,14 +157,26 @@ const AdmissionsPage = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Filière souhaitée *</label>
                  <select required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CC1122] focus:border-transparent outline-none bg-white transition-all cursor-pointer" onChange={(e) => setFormData({...formData, filiere: e.target.value})}>
                   <option value="">-- Sélectionnez une filière --</option>
-                  <option value="genie-informatique">Génie Informatique</option>
-                  <option value="gestion-rh">Gestion des Ressources Humaines</option>
-                  <option value="comptabilite">Comptabilité</option>
-                  <option value="banque-assurance">Banque, Assurances et Finances</option>
-                  <option value="reseaux-telecoms">Réseaux et Télécommunications</option>
-                  <option value="logistique">Management de la Chaîne Logistique</option>
-                  <option value="entrepreneuriat">Management Entrepreneuriat</option>
-                  <option value="droit">Droit</option>
+                  
+                  <optgroup label="Technologies de l'Information">
+                    <option value="genie-informatique">Génie Informatique</option>
+                    <option value="reseaux-telecoms">Réseaux et Télécommunications</option>
+                    <option value="data-ia">Sciences des Données et Intelligence Artificielle</option>
+                  </optgroup>
+                  
+                  <optgroup label="Sciences Appliquées & Santé">
+                    <option value="qhse">QHSE (Qualité, Hygiène, Sécurité, Environnement)</option>
+                    <option value="delegue-medical">Délégué Médical</option>
+                  </optgroup>
+                  
+                  <optgroup label="Sciences de Gestion & Droit">
+                    <option value="gestion-rh">Gestion des Ressources Humaines</option>
+                    <option value="comptabilite">Comptabilité</option>
+                    <option value="banque-assurance">Banque, Assurances et Finances</option>
+                    <option value="logistique">Management de la Chaîne Logistique</option>
+                    <option value="entrepreneuriat">Management Entrepreneuriat</option>
+                    <option value="droit">Droit</option>
+                  </optgroup>
                 </select>
                 </div>
 

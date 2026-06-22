@@ -2,7 +2,8 @@ import SEO from "@/components/SEO";
 import { Link } from "react-router-dom";
 import {
   Monitor, Users, Calculator, Landmark, Network, Briefcase, Scale, TruckIcon,
-  Clock, Award, BookOpen, CheckCircle, ArrowRight, CheckCircle2
+  Clock, Award, BookOpen, CheckCircle, ArrowRight, CheckCircle2,
+  Brain, Shield, HeartPulse // <-- NOUVELLES ICÔNES ICI
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -14,66 +15,48 @@ import studentsLibrary from "@/assets/students-library.jpg";
 // NOTRE BASE DE DONNÉES CATÉGORISÉE (Design IESC, Données complètes)
 const categories = [
   {
-    title: "Sciences de Gestion | Droit",
+    title: "Sciences de Gestion et Droit",
     description: "Des formations conçues pour former les futurs cadres et dirigeants d'entreprises. Les talents en gestion sont cruciaux pour la croissance de toute organisation.",
     programs: [
       {
-        id: "ressources-humaines",
-        icon: Users,
-        title: "Gestion des Ressources Humaines",
+        id: "ressources-humaines", icon: Users, title: "Gestion des Ressources Humaines",
         description: "Maîtrisez les techniques de management du capital humain, du recrutement à la gestion des carrières.",
-        duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
+        duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Responsable RH", "Chargé de recrutement", "Gestionnaire de paie", "Responsable formation"],
         modules: ["Droit du travail", "Gestion des compétences", "Recrutement et intégration", "Paie"],
       },
       {
-        id: "comptabilite",
-        icon: Calculator,
-        title: "Comptabilité",
+        id: "comptabilite", icon: Calculator, title: "Comptabilité",
         description: "Formation approfondie en comptabilité générale, analytique, fiscalité et audit pour devenir un expert des chiffres.",
-        duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
+        duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Comptable", "Contrôleur de gestion", "Responsable financier", "Auditeur junior"],
         modules: ["Comptabilité générale", "Fiscalité", "Audit comptable", "Finance d'entreprise"],
       },
       {
-        id: "banque-finance",
-        icon: Landmark,
-        title: "Banque, Assurance | Finances",
+        id: "banque-finance", icon: Landmark, title: "Banque, Assurance et Finances",
         description: "Acquérez les compétences nécessaires pour évoluer dans le secteur bancaire et les assurances.",
-        duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
+        duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Chargé de clientèle", "Agent d'assurance", "Analyste financier", "Conseiller financier"],
         modules: ["Économie monétaire", "Techniques bancaires", "Assurance et prévoyance", "Maths financières"],
       },
       {
-        id: "logistique",
-        icon: TruckIcon,
-        title: "Management de la Chaîne Logistique",
+        id: "logistique", icon: TruckIcon, title: "Management de la Chaîne Logistique",
         description: "Optimisez les flux de marchandises et d'informations au sein des entreprises grâce à la supply chain.",
-        duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
+        duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Responsable logistique", "Supply Chain Manager", "Gestionnaire de stocks", "Planificateur"],
         modules: ["Gestion des stocks", "Transport", "Approvisionnement", "Logistique internationale"],
       },
       {
-        id: "management",
-        icon: Briefcase,
-        title: "Management | Entrepreneuriat",
+        id: "management", icon: Briefcase, title: "Management et Entrepreneuriat",
         description: "Développez vos compétences en gestion d'entreprise, leadership et création de projets.",
-        duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
+        duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Entrepreneur", "Manager d'entreprise", "Chef de projet", "Business Developer"],
         modules: ["Management stratégique", "Création d'entreprise", "Marketing", "Leadership"],
       },
       {
-        id: "droit",
-        icon: Scale,
-        title: "Droit",
+        id: "droit", icon: Scale, title: "Droit",
         description: "Formation juridique complète couvrant le droit des affaires, civil et du travail.",
-        duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
+        duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Juriste d'entreprise", "Assistant juridique", "Consultant juridique", "Clerc d'avocat"],
         modules: ["Droit civil", "Droit des affaires", "Droit du travail", "Droit pénal"],
       },
@@ -81,28 +64,51 @@ const categories = [
   },
   {
     title: "Technologies de l'Information",
-    description: "La demande pour les professionnels des TIC sur le marché de l'emploi est actuellement très élevée et en forte croissance.",
+    description: "La demande pour les professionnels des TIC et de la donnée sur le marché de l'emploi est en forte croissance.",
     programs: [
       {
-        id: "genie-informatique",
-        icon: Monitor,
-        title: "Génie Informatique",
+        id: "genie-informatique", icon: Monitor, title: "Génie Informatique",
         description: "Formation complète en développement logiciel, administration systèmes et réseaux, bases de données et technologies web et mobile.",
-        duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
-        careers: ["Développeur web et mobile", "Développeur logiciel", "Administrateur systèmes", "Analyste programmeur", "Chef de projet informatique", "Consultant en transformation digitale"],
-        modules: ["Algorithmique et programmation", "Bases de données", "Développement web (HTML, CSS, JS)", "Réseaux informatiques", "Systèmes d'exploitation", "Génie logiciel", "Sécurité informatique", "Intelligence artificielle"],
+        duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
+        careers: ["Développeur web et mobile", "Développeur logiciel", "Administrateur systèmes", "Chef de projet IT"],
+        modules: ["Algorithmique et programmation", "Bases de données", "Développement web", "Réseaux informatiques"],
       },
       {
-        id: "reseaux-telecom",
-        icon: Network,
-        title: "Réseaux et Télécommunication",
+        id: "reseaux-telecom", icon: Network, title: "Réseaux et Télécommunication",
         description: "Devenez expert en infrastructure réseau, cybersécurité et systèmes de télécommunication modernes.",
-        duration: "3 ans (Licence) / 5 ans (Master)",
-        price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
-        careers: ["Administrateur réseaux", "Technicien télécoms", "Responsable infrastructure IT", "Consultant en cybersécurité", "Support technique réseaux", "Technicien réseaux"],
-        modules: ["Architecture réseau", "Protocoles TCP/IP", "Sécurité des réseaux", "Télécommunications", "Administration Linux/Windows Server", "Cloud computing"],
+        duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
+        careers: ["Administrateur réseaux", "Technicien télécoms", "Responsable infrastructure IT", "Consultant en cybersécurité"],
+        modules: ["Architecture réseau", "Protocoles TCP/IP", "Sécurité des réseaux", "Télécommunications"],
       },
+      // 👇 NOUVELLE FILIÈRE : IA & DATA 👇
+      {
+        id: "data-ia", icon: Brain, title: "Sciences des Données et Intelligence Artificielle",
+        description: "Plongez au cœur de la révolution numérique en maîtrisant l'analyse de données massives et les algorithmes d'IA.",
+        duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
+        careers: ["Data Scientist", "Data Analyst", "Ingénieur IA", "Consultant Big Data"],
+        modules: ["Machine Learning", "Programmation Python/R", "Statistiques appliquées", "Analyse de données (Big Data)"],
+      }
+    ]
+  },
+  // 👇 NOUVEAU DÉPARTEMENT : SANTÉ & PRÉVENTION 👇
+  {
+    title: "Sciences Appliquées et Santé",
+    description: "Des formations d'excellence répondant aux exigences strictes des secteurs de la santé, de l'industrie et de l'environnement.",
+    programs: [
+      {
+        id: "qhse", icon: Shield, title: "QHSE (Qualité, Hygiène, Sécurité, Environnement)",
+        description: "Devenez l'expert indispensable en prévention des risques professionnels, normes de qualité et respect de l'environnement.",
+        duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
+        careers: ["Responsable QHSE", "Contrôleur qualité", "Auditeur environnemental", "Consultant en prévention des risques"],
+        modules: ["Normes ISO (9001, 14001, 45001)", "Ergonomie et sécurité au travail", "Droit de l'environnement", "Gestion des déchets"],
+      },
+      {
+        id: "delegue-medical", icon: HeartPulse, title: "Délégué Médical",
+        description: "Maîtrisez la promotion des produits pharmaceutiques et devenez l'interface privilégiée entre les laboratoires et les professionnels de santé.",
+        duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
+        careers: ["Délégué médical", "Visiteur médical", "Attaché à la promotion du médicament", "Superviseur des ventes pharmaceutiques"],
+        modules: ["Pharmacologie de base", "Techniques de vente et négociation", "Anatomie et physiologie", "Réglementation pharmaceutique"],
+      }
     ]
   }
 ];
@@ -134,7 +140,7 @@ const FormationsPage = () => {
         <div className="container mx-auto" ref={statsRef}>
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto transition-all duration-700 ${statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             {[
-              { icon: BookOpen, value: "8", label: "Filières disponibles" },
+              { icon: BookOpen, value: "11", label: "Filières disponibles" },
               { icon: Clock, value: "3-5 ans", label: "Durée de formation" },
               { icon: Award, value: "100%", label: "Stage garanti" },
               { icon: CheckCircle, value: "Dès 50.000 F", label: "par mois (Scolarité)" },

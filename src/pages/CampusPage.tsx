@@ -9,9 +9,9 @@ import Footer from "@/components/Footer";
 import ZoomCarousel from "@/components/ZoomCarousel";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import campusImg from "@/assets/hero-3.jpg";
-import labImg from "@/assets/campus-lab.jpg";
+import labImg from "@/assets/Salle informatique.webp";
 import libraryImg from "@/assets/campus-library.jpg";
-import classroomImg from "@/assets/campus-classroom.jpg";
+import classroomImg from "@/assets/Salle1.webp";
 
 const facilities = [
   {

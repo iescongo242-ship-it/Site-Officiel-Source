@@ -65,7 +65,7 @@ const EvenementsPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
        <SEO 
-        title="Actualités & Vie Étudiante" 
+        title="Actualités et Vie Étudiante" 
         description="Plongez dans la vie de campus de l'IESC Brazzaville : actualités, journées portes ouvertes, conférences, hackathons et cérémonies de remise de diplômes." 
       />
       <Navbar />
@@ -76,7 +76,7 @@ const EvenementsPage = () => {
           { src: eventGraduation, alt: "Remise de diplômes" },
           { src: eventConference, alt: "Conférence" },
         ]}
-        title="Actualités | Vie Étudiante"
+        title="Actualités et Vie Étudiante"
         subtitle="Découvrez les temps forts de l'IESC : notre participation aux grands événements, nos conférences, et la vie sur le campus."
         badge="Le Magazine de l'IESC"
       />
