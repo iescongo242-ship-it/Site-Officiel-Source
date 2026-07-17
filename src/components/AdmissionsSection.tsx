@@ -59,10 +59,10 @@ const AdmissionsSection = () => {
               
               <div className="mb-6 flex-grow">
                 <div className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">
-                  Dès 50.000<span className="text-xl text-gray-400"> F</span>
+                  Dès 500.000<span className="text-xl text-gray-400"> F</span>
                 </div>
                 <div className="text-gray-300 text-sm mb-4 font-semibold uppercase tracking-wider">
-                  Par mois (L1, L2, L3: 60.000 F / mois)
+                  L'année (L1, L2, L3: 600.000 F L'année)
                 </div>
                 
                 <div className="bg-white/10 p-4 rounded-lg border border-white/20">
@@ -93,7 +93,7 @@ const AdmissionsSection = () => {
                 "Campus ultra-moderne et sécurisé", 
                 "Salles informatiques de pointe", 
                 "Stage garanti en fin de formation", 
-                "Facilités de paiement mensuel"
+                "Facilités de paiement par tranche"
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-gray-600">
                   <CheckCircle size={18} className="text-[#CC1122] mt-0.5 shrink-0" />

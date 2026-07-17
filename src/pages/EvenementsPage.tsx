@@ -55,7 +55,7 @@ const pastEvents = [
     description: "48 heures de créativité et d'innovation technologique réunissant les meilleurs talents de l'école." 
   },
   { 
-    title: "Forum Emploi & Stages", 
+    title: "Forum Emploi et Stages", 
     date: "Novembre 2025", 
     description: "Rencontre exclusive entre nos étudiants et plus de 20 entreprises partenaires (Banques, Télécoms, Assurances)." 
   },

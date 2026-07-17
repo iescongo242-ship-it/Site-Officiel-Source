@@ -17,7 +17,6 @@ const programs = [
   { icon: Briefcase, title: "Management et Entrepreneuriat", careers: ["Entrepreneur", "Chef de projet", "Business Developer", "Responsable commercial"] },
   { icon: Scale, title: "Droit", careers: ["Juriste d'entreprise", "Assistant juridique", "Consultant juridique", "Clerc d'avocat"] },
   { icon: Shield, title: "Qualité, Hygiène, Sécurité (QHSE)", careers: ["Responsable QHSE", "Contrôleur qualité", "Auditeur environnement", "Préventeur"] },
-  { icon: HeartPulse, title: "Délégué Médical", careers: ["Délégué médical", "Visiteur médical", "Promoteur pharmaceutique", "Superviseur des ventes"] },
 ];
 
 const ProgramsSection = () => {
@@ -40,7 +39,7 @@ const ProgramsSection = () => {
           </h2>
           <div className="w-20 h-1 bg-[#CC1122] mx-auto mb-6" />
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Découvrez nos 11 filières professionnelles conçues pour répondre aux exigences du marché de l'emploi
+            Découvrez nos 10 filières professionnelles conçues pour répondre aux exigences du marché de l'emploi
           </p>
         </div>
 

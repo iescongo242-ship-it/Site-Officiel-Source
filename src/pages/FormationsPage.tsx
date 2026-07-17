@@ -140,10 +140,10 @@ const FormationsPage = () => {
         <div className="container mx-auto" ref={statsRef}>
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto transition-all duration-700 ${statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             {[
-              { icon: BookOpen, value: "11", label: "Filières disponibles" },
-              { icon: Clock, value: "3-5 ans", label: "Durée de formation" },
+              { icon: BookOpen, value: "10", label: "Filières disponibles" },
+              { icon: Clock, value: "3 ans", label: "Durée de formation" },
               { icon: Award, value: "100%", label: "Stage garanti" },
-              { icon: CheckCircle, value: "Dès 50.000 F", label: "par mois (Scolarité)" },
+              { icon: CheckCircle, value: "Dès 500.000 F", label: "L'année (Scolarité)" },
             ].map((stat, i) => (
               <div 
                 key={i} 
