@@ -102,13 +102,6 @@ const categories = [
         careers: ["Responsable QHSE", "Contrôleur qualité", "Auditeur environnemental", "Consultant en prévention des risques"],
         modules: ["Normes ISO (9001, 14001, 45001)", "Ergonomie et sécurité au travail", "Droit de l'environnement", "Gestion des déchets"],
       },
-      {
-        id: "delegue-medical", icon: HeartPulse, title: "Délégué Médical",
-        description: "Maîtrisez la promotion des produits pharmaceutiques et devenez l'interface privilégiée entre les laboratoires et les professionnels de santé.",
-        duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
-        careers: ["Délégué médical", "Visiteur médical", "Attaché à la promotion du médicament", "Superviseur des ventes pharmaceutiques"],
-        modules: ["Pharmacologie de base", "Techniques de vente et négociation", "Anatomie et physiologie", "Réglementation pharmaceutique"],
-      }
     ]
   }
 ];
