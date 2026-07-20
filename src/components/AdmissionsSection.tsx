@@ -36,9 +36,12 @@ const AdmissionsSection = () => {
             <ul className="space-y-4 flex-grow">
               {[
                 "Copie légalisée du diplôme (BAC)", 
-                "Copie de l'acte de naissance", 
+                "Copie en couleur de l'acte de naissance", 
                 "4 photos d'identité format carte", 
-                "Copie de la carte d'identité ou passeport"
+                "Relevés de notes",
+                "Une enveloppe Kaki A4",
+                "1 Paquet de rame A4",
+                "1 Paquet de marqueur tableau blanc (non permanent)",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-gray-600">
                   <CheckCircle size={18} className="text-[#CC1122] mt-0.5 shrink-0" />

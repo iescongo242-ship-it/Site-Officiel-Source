@@ -51,16 +51,12 @@ const Navbar = () => {
       
       {/* DÉBUT DE LA BANNIÈRE JPO */}
       <div className="bg-[#CC1122] text-white text-center py-3 px-4 text-sm md:text-base font-sans leading-relaxed">
-        📢 GRANDE Journée Portes Ouvertes : 
-        <span className="bg-white text-[#CC1122] px-2 py-1 rounded-md mx-2 font-bold shadow-sm">
-          Samedi 27 Juin à 08h00
-        </span> 
-        ! Pré-inscrivez-vous en ligne (Kit IESC offert aux 50 premiers). 
+        📢 <span className="font-bold">Prochaine Journée Portes Ouvertes : Édition en préparation !</span> Restez connectés. Les pré-inscriptions restent ouvertes. 
         <Link 
           to="/admissions" 
           className="inline-block mt-2 md:mt-0 md:ml-3 border border-white px-4 py-1 rounded-md text-sm font-bold hover:bg-white hover:text-[#CC1122] transition-colors"
         >
-          Réserver ma place !
+          S'inscrire maintenant !
         </Link>
       </div>
       {/* FIN DE LA BANNIÈRE JPO */}

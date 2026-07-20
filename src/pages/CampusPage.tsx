@@ -8,9 +8,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ZoomCarousel from "@/components/ZoomCarousel";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import campusImg from "@/assets/hero-3.jpg";
-import labImg from "@/assets/Salle informatique.webp";
-import libraryImg from "@/assets/campus-library.jpg";
+import campusImg from "@/assets/hero002.webp";
+import labIinformatique from "@/assets/Salle informatique.webp";
+import librarytravail from "@/assets/Espace-travail.webp";
 import classroomImg from "@/assets/Salle1.webp";
 
 const facilities = [
@@ -21,15 +21,15 @@ const facilities = [
     icon: BookOpen,
   },
   {
-    image: labImg,
+    image: labIinformatique,
     title: "Laboratoire informatique",
     description: "Un laboratoire équipé d'ordinateurs performants avec accès internet haut débit pour les travaux pratiques.",
     icon: Monitor,
   },
   {
-    image: libraryImg,
-    title: "Bibliothèque",
-    description: "Une bibliothèque riche en ouvrages académiques et professionnels, avec des espaces de lecture confortables.",
+    image: librarytravail,
+    title: "Espaces de Travail et Coworking",
+    description: "Des espaces collaboratifs couverts par notre Wi-Fi haut débit, conçus pour favoriser les travaux de groupe et les révisions dans un cadre calme.",
     icon: Library,
   },
 ];
@@ -58,7 +58,7 @@ const CampusPage = () => {
         images={[
           { src: campusImg, alt: "Campus IESC" },
           { src: classroomImg, alt: "Salle de cours" },
-          { src: labImg, alt: "Laboratoire" },
+          { src: librarytravail, alt: "Laboratoire" },
         ]}
         title="Notre Campus"
         subtitle="Un environnement moderne et stimulant au cœur de Brazzaville, conçu pour favoriser votre réussite académique"

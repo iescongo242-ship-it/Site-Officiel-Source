@@ -15,10 +15,13 @@ import studentsGroup from "@/assets/students-group.jpg";
 // Liste des documents nettoyée et professionnelle
 const documents = [
   "Copie légalisée du dernier diplôme (BAC ou équivalent)",
-  "Relevés de notes des 2 dernières années",
   "Photocopie en couleur de l'acte de naissance",
+  "Relevés de notes ",
   "4 photos d'identité format passeport",
-  "Copie de la carte d'identité ou du passeport",
+  "Une enveloppe Kaki A4",
+  "1 Paquet de rame A4",
+  "1 Paquet de marqueur tableau blanc (non permanent)",
+  
 ];
 
 const faqs = [
@@ -71,7 +74,7 @@ const AdmissionsPage = () => {
             La campagne d'admission est ouverte !
           </h2>
           <div className="inline-flex items-center gap-2 bg-[#CC1122] text-white font-bold py-3 px-8 rounded-full shadow-lg animate-pulse text-sm md:text-base cursor-default">
-            🎁 KIT IESC OFFERT AUX 50 PREMIERS INSCRITS EN LIGNE
+            🎁 Les pré-inscriptions restent ouvertes
           </div>
         </div>
       </div>
