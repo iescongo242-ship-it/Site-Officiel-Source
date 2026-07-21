@@ -21,7 +21,6 @@ const documents = [
   "Une enveloppe Kaki A4",
   "1 Paquet de rame A4",
   "1 Paquet de marqueur tableau blanc (non permanent)",
-  
 ];
 
 const faqs = [

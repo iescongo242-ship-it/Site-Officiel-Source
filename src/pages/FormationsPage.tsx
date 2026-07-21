@@ -11,7 +11,19 @@ import ZoomCarousel from "@/components/ZoomCarousel";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import studentsClassroom from "@/assets/students-classroom.jpg";
 import studentsLab from "@/assets/students-lab.jpg";
-import studentsLibrary from "@/assets/students-library.jpg";
+import librarytravail from "@/assets/Espace-travail.webp";
+import FormCompta from "@/assets/comptabilité-3.jpg";
+import FormDroit from "@/assets/Droit2.webp";
+import FormFinance from "@/assets/finance-banque-assurance-2.webp";
+import FormRh from "@/assets/rh-1.webp";
+import FormQHSE from "@/assets/QHSE-f.webp";
+import FormIASD from "@/assets/IASD-1.webp";
+import FormIG from "@/assets/GénieInformatique1.webp";
+import FormRt from "@/assets/Rt-2.webp";
+import FormTL from "@/assets/Management-Chaîne-Logistique1.webp";
+import FormME from "@/assets/Management-Entrepreneuriat2.webp";
+
+
 
 // NOTRE BASE DE DONNÉES CATÉGORISÉE AVEC IMAGES INTÉGRÉES
 const categories = [
@@ -20,42 +32,42 @@ const categories = [
     description: "Des formations conçues pour former les futurs cadres et dirigeants d'entreprises. Les talents en gestion sont cruciaux pour la croissance de toute organisation.",
     programs: [
       {
-        id: "ressources-humaines", icon: Users, image: studentsGroup, title: "Gestion des Ressources Humaines",
+        id: "ressources-humaines", icon: Users, image: FormRh, title: "Gestion des Ressources Humaines",
         description: "Maîtrisez les techniques de management du capital humain, du recrutement à la gestion des carrières.",
         duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Responsable RH", "Chargé de recrutement", "Gestionnaire de paie", "Responsable formation"],
         modules: ["Droit du travail", "Gestion des compétences", "Recrutement et intégration", "Paie"],
       },
       {
-        id: "comptabilite", icon: Calculator, image: studentsLibrary, title: "Comptabilité",
+        id: "comptabilite", icon: Calculator, image: FormCompta, title: "Comptabilité",
         description: "Formation approfondie en comptabilité générale, analytique, fiscalité et audit pour devenir un expert des chiffres.",
         duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Comptable", "Contrôleur de gestion", "Responsable financier", "Auditeur junior"],
         modules: ["Comptabilité générale", "Fiscalité", "Audit comptable", "Finance d'entreprise"],
       },
       {
-        id: "banque-finance", icon: Landmark, image: studentsClassroom, title: "Banque, Assurance et Finances",
+        id: "banque-finance", icon: Landmark, image: FormFinance, title: "Banque, Assurance et Finances",
         description: "Acquérez les compétences nécessaires pour évoluer dans le secteur bancaire et les assurances.",
         duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Chargé de clientèle", "Agent d'assurance", "Analyste financier", "Conseiller financier"],
         modules: ["Économie monétaire", "Techniques bancaires", "Assurance et prévoyance", "Maths financières"],
       },
       {
-        id: "logistique", icon: TruckIcon, image: studentsGroup, title: "Management de la Chaîne Logistique",
+        id: "logistique", icon: TruckIcon, image: FormTL, title: "Management de la Chaîne Logistique",
         description: "Optimisez les flux de marchandises et d'informations au sein des entreprises grâce à la supply chain.",
         duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Responsable logistique", "Supply Chain Manager", "Gestionnaire de stocks", "Planificateur"],
         modules: ["Gestion des stocks", "Transport", "Approvisionnement", "Logistique internationale"],
       },
       {
-        id: "management", icon: Briefcase, image: studentsClassroom, title: "Management et Entrepreneuriat",
+        id: "management", icon: Briefcase, image: FormME, title: "Management et Entrepreneuriat",
         description: "Développez vos compétences en gestion d'entreprise, leadership et création de projets.",
         duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Entrepreneur", "Manager d'entreprise", "Chef de projet", "Business Developer"],
         modules: ["Management stratégique", "Création d'entreprise", "Marketing", "Leadership"],
       },
       {
-        id: "droit", icon: Scale, image: studentsLibrary, title: "Droit",
+        id: "droit", icon: Scale, image: FormDroit, title: "Droit",
         description: "Formation juridique complète couvrant le droit des affaires, civil et du travail.",
         duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Juriste d'entreprise", "Assistant juridique", "Consultant juridique", "Clerc d'avocat"],
@@ -68,21 +80,21 @@ const categories = [
     description: "La demande pour les professionnels des TIC et de la donnée sur le marché de l'emploi est en forte croissance.",
     programs: [
       {
-        id: "genie-informatique", icon: Monitor, image: studentsLab, title: "Génie Informatique",
+        id: "genie-informatique", icon: Monitor, image: FormIG, title: "Génie Informatique",
         description: "Formation complète en développement logiciel, administration systèmes et réseaux, bases de données et technologies web et mobile.",
         duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Développeur web et mobile", "Développeur logiciel", "Administrateur systèmes", "Chef de projet IT"],
         modules: ["Algorithmique et programmation", "Bases de données", "Développement web", "Réseaux informatiques"],
       },
       {
-        id: "reseaux-telecom", icon: Network, image: studentsLab, title: "Réseaux et Télécommunication",
+        id: "reseaux-telecom", icon: Network, image: FormRt, title: "Réseaux et Télécommunication",
         description: "Devenez expert en infrastructure réseau, cybersécurité et systèmes de télécommunication modernes.",
         duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Administrateur réseaux", "Technicien télécoms", "Responsable infrastructure IT", "Consultant en cybersécurité"],
         modules: ["Architecture réseau", "Protocoles TCP/IP", "Sécurité des réseaux", "Télécommunications"],
       },
       {
-        id: "data-ia", icon: Brain, image: studentsClassroom, title: "Sciences des Données et Intelligence Artificielle",
+        id: "data-ia", icon: Brain, image: FormIASD, title: "Sciences des Données et Intelligence Artificielle",
         description: "Plongez au cœur de la révolution numérique en maîtrisant l'analyse de données massives et les algorithmes d'IA.",
         duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Data Scientist", "Data Analyst", "Ingénieur IA", "Consultant Big Data"],
@@ -95,7 +107,7 @@ const categories = [
     description: "Des formations d'excellence répondant aux exigences strictes des secteurs de la santé, de l'industrie et de l'environnement.",
     programs: [
       {
-        id: "qhse", icon: Shield, image: studentsLibrary, title: "QHSE (Qualité, Hygiène, Sécurité, Environnement)",
+        id: "qhse", icon: Shield, image: FormQHSE, title: "QHSE (Qualité, Hygiène, Sécurité, Environnement)",
         description: "Devenez l'expert indispensable en prévention des risques professionnels, normes de qualité et respect de l'environnement.",
         duration: "3 ans (Licence) / 5 ans (Master)", price: "L1/L2 : 500.000 F / An | L3 : 600.000 F",
         careers: ["Responsable QHSE", "Contrôleur qualité", "Auditeur environnemental", "Consultant en prévention des risques"],
@@ -123,10 +135,10 @@ const FormationsPage = () => {
         images={[
           { src: studentsClassroom, alt: "Étudiants en salle de cours" },
           { src: studentsLab, alt: "Laboratoire informatique" },
-          { src: studentsLibrary, alt: "Bibliothèque" },
+          { src: librarytravail, alt: "Espaces de Travail et Coworking" },
         ]}
         title="Nos Formations"
-        subtitle="11 filières professionnelles conçues pour former les cadres compétents dont le Congo a besoin"
+        subtitle="10 filières professionnelles conçues pour former les cadres compétents dont le Congo a besoin"
       />
 
       <section className="relative z-30 -mt-20 mb-20 px-4">
@@ -218,20 +230,28 @@ const ProgramCard = ({ prog, index }: { prog: any; index: number }) => {
           {/* Colonne 1 : IMAGE + Titre et Description */}
           <div className="lg:col-span-1 border-r border-gray-100 flex flex-col group cursor-default">
             
-            {/* L'IMAGE SPÉCIFIQUE À LA FILIÈRE */}
-            <div className="relative h-48 w-full overflow-hidden">
+            {/* L'IMAGE SPÉCIFIQUE À LA FILIÈRE (Correction Mobile) */}
+            {/* h-64 sur téléphone (plus haut) et lg:h-52 sur PC (plus compact) */}
+            <div className="relative h-64 lg:h-52 w-full overflow-hidden bg-gray-100">
+              
               <img 
                 src={prog.image} 
                 alt={prog.title} 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                // Ajout de object-[center_20%] pour ne pas couper le haut des photos !
+                className="w-full h-full object-cover object-[center_20%] group-hover:scale-110 transition-transform duration-700" 
               />
-              {/* L'icône posée élégamment sur l'image */}
-              <div className="absolute -bottom-6 left-8 w-14 h-14 rounded-xl bg-white shadow-lg flex items-center justify-center border border-gray-100 z-10 group-hover:bg-[#CC1122] transition-colors duration-300">
+              
+              {/* Petit voile noir ultra-léger pour un effet Premium qui disparaît au survol */}
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+
+              {/* L'icône posée élégamment sur l'image (décalée un peu à gauche pour les petits écrans) */}
+              <div className="absolute -bottom-6 left-6 w-14 h-14 rounded-xl bg-white shadow-lg flex items-center justify-center border border-gray-100 z-10 group-hover:bg-[#CC1122] transition-colors duration-300">
                 <prog.icon size={26} className="text-[#CC1122] group-hover:text-white transition-colors duration-300" />
               </div>
             </div>
 
             <div className="p-8 pt-10 flex-grow flex flex-col">
+              {/* Le reste de ton code ne bouge pas... */}
               <h3 className="text-xl font-heading font-bold text-black leading-tight mb-4 group-hover:text-[#CC1122] transition-colors">{prog.title}</h3>
               <p className="text-gray-600 leading-relaxed mb-6 flex-grow text-sm">{prog.description}</p>
               
