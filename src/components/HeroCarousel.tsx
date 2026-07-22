@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import hero1 from "@/assets/hero1.webp";
-import hero2 from "@/assets/hero3.webp";
-import hero3 from "@/assets/hero001.webp";
+import hero1 from "@/assets/hero3.webp";
+import hero2 from "@/assets/hero2.webp";
+import hero3 from "@/assets/hero002.webp";
 
 const slides = [
   {
@@ -51,7 +51,8 @@ const HeroCarousel = () => {
   }, [next]);
 
   return (
-    <section id="accueil" className="relative h-[90vh] min-h-[600px] overflow-hidden">
+    <section id="accueil" className="relative w-full h-[500px] lg:h-auto lg:aspect-video overflow-hidden bg-black">
+      {/* La boîte s'adapte parfaitement au 16:9 sur ordinateur */}
       {slides.map((slide, i) => (
         <div
           key={i}
@@ -62,7 +63,7 @@ const HeroCarousel = () => {
           <img
             src={slide.image}
             alt={slide.title}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-[center_30%]"
           />
           <div className="absolute inset-0 hero-gradient" />
           <div className="relative z-10 h-full flex items-center">
@@ -83,7 +84,6 @@ const HeroCarousel = () => {
                   {slide.subtitle}
                 </p>
                 
-                {/*  LE BOUTON MODIFIÉ EST ICI  */}
                 <a
                   href={slide.href}
                   className={`inline-flex items-center px-8 py-4 bg-iesc-red text-white font-semibold rounded-md hover:bg-iesc-blue transition-colors duration-500 delay-400 ${
@@ -115,7 +115,7 @@ const HeroCarousel = () => {
         <ChevronRight size={24} />
       </button>
 
-      {/* Dots (Les petits points de navigation) */}
+      {/* Dots */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {slides.map((_, i) => (
           <button

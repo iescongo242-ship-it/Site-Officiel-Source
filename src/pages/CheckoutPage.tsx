@@ -57,6 +57,7 @@ const CheckoutPage = () => {
 
       const result = await response.json();
       console.log("Réponse du serveur :", result);
+      localStorage.removeItem("form_admissions")
     } catch (error) {
       console.error("Erreur d'envoi :", error);
     }

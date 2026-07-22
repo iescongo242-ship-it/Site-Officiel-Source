@@ -8,10 +8,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ZoomCarousel from "@/components/ZoomCarousel";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import campusImg from "@/assets/hero002.webp";
-import labIinformatique from "@/assets/Salle-informatique.webp";
+import campusImg from "@/assets/hero001.webp";
+import labIinformatique from "@/assets/salle-informatique1.webp";
 import librarytravail from "@/assets/Espace-travail.webp";
-import classroomImg from "@/assets/Salle1.webp";
+import classroomImg from "@/assets/salle2.webp";
 
 const facilities = [
   {

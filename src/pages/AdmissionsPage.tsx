@@ -9,8 +9,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ZoomCarousel from "@/components/ZoomCarousel";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import studentsAdmission from "@/assets/students-admission.jpg";
-import studentsGroup from "@/assets/students-group.jpg";
+import studentsAdmission from "@/assets/students-admission.webp";
+import studentsGroup from "@/assets/students-group.webp";
 
 // Liste des documents nettoyée et professionnelle
 const documents = [

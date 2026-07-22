@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ZoomCarousel from "@/components/ZoomCarousel";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import studentsGroup from "@/assets/students-group.jpg";
+import studentsGroup from "@/assets/students-group.webp";
 import { sanitizeInput, isValidEmail, isValidPhone, truncateInput, RateLimiter, VALIDATION_LIMITS } from "@/lib/security";
 
 const formRateLimiter = new RateLimiter(3, 60000); // 3 soumissions par minute

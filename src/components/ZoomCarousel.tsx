@@ -22,7 +22,8 @@ const ZoomCarousel = ({ images, title, subtitle, badge, interval = 5000 }: ZoomC
   return (
     // CORRECTION DU VIDE ICI : on a enlevé le pt-20 !
     <section className="relative">
-      <div className="relative h-[55vh] min-h-[420px] overflow-hidden">
+      {/* La boîte qui contient les images s'adapte parfaitement au 16:9 sur ordinateur */}
+      <div className="relative w-full h-[450px] lg:h-auto lg:aspect-video overflow-hidden bg-black mx-auto">
         {images.map((img, i) => (
           <div
             key={i}
