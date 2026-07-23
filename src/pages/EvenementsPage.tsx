@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import ZoomCarousel from "@/components/ZoomCarousel";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Calendar, MapPin, Clock, Users, ArrowRight } from "lucide-react";
-import eventJournée from "@/assets/Prochaine-journée.webp";
+import eventJournée from "@/assets/Prochaine-journee.webp";
 import eventRentrer from "@/assets/Prochaine-rentrer.webp";
 import eventConference from "@/assets/conference_ia.webp";
 
