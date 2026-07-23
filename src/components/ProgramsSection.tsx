@@ -1,18 +1,22 @@
 import { Link } from "react-router-dom";
 import {
-  Monitor, Users, Calculator, Landmark, Network, Briefcase, Scale, TruckIcon, ArrowRight
+  Monitor, Users, Calculator, Landmark, Network, Briefcase, Scale, TruckIcon,
+  Clock, Award, BookOpen, CheckCircle, ArrowRight, CheckCircle2,
+  Brain, Shield, HeartPulse // <-- NOUVELLES ICÔNES ICI
 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const programs = [
-  { icon: Monitor, title: "Génie Informatique", careers: ["Développeur web et mobile", "Administrateur systèmes", "Chef de projet informatique", "Consultant digital"] },
+  { icon: Monitor, title: "Génie Informatique", careers: ["Développeur web et mobile", "Administrateur systèmes", "Chef de projet IT", "Consultant digital"] },
+  { icon: Brain, title: "Data Science et IA", careers: ["Data Scientist", "Ingénieur IA", "Data Analyst", "Consultant Big Data"] },
+  { icon: Network, title: "Réseaux et Télécoms", careers: ["Administrateur réseaux", "Technicien télécoms", "Consultant cybersécurité", "Responsable IT"] },
   { icon: Users, title: "Ressources Humaines", careers: ["Responsable RH", "Chargé de recrutement", "Gestionnaire de paie", "Consultant RH"] },
   { icon: Calculator, title: "Comptabilité", careers: ["Comptable", "Contrôleur de gestion", "Responsable financier", "Auditeur junior"] },
-  { icon: Landmark, title: "Banque | Finances", careers: ["Agent d'assurance", "Analyste financier", "Cadre bancaire", "Gestion de portefeuille"] },
-  { icon: Network, title: "Réseaux | Télécoms", careers: ["Administrateur réseaux", "Technicien télécoms", "Consultant cybersécurité", "Responsable IT"] },
+  { icon: Landmark, title: "Banque et Finances", careers: ["Agent d'assurance", "Analyste financier", "Cadre bancaire", "Gestion de portefeuille"] },
   { icon: TruckIcon, title: "Chaîne Logistique", careers: ["Responsable logistique", "Supply Chain Manager", "Gestion des stocks", "Planificateur"] },
-  { icon: Briefcase, title: "Management | Entrep.", careers: ["Entrepreneur", "Chef de projet", "Business Developer", "Responsable commercial"] },
+  { icon: Briefcase, title: "Management et Entrepreneuriat", careers: ["Entrepreneur", "Chef de projet", "Business Developer", "Responsable commercial"] },
   { icon: Scale, title: "Droit", careers: ["Juriste d'entreprise", "Assistant juridique", "Consultant juridique", "Clerc d'avocat"] },
+  { icon: Shield, title: "Qualité, Hygiène, Sécurité (QHSE)", careers: ["Responsable QHSE", "Contrôleur qualité", "Auditeur environnement", "Préventeur"] },
 ];
 
 const ProgramsSection = () => {
@@ -35,7 +39,7 @@ const ProgramsSection = () => {
           </h2>
           <div className="w-20 h-1 bg-[#CC1122] mx-auto mb-6" />
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Découvrez nos 8 filières professionnelles conçues pour répondre aux exigences du marché de l'emploi
+            Découvrez nos 10 filières professionnelles conçues pour répondre aux exigences du marché de l'emploi
           </p>
         </div>
 

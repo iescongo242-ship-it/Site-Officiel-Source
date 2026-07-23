@@ -11,6 +11,7 @@ import AdmissionsPage from "./pages/AdmissionsPage.tsx";
 import CampusPage from "./pages/CampusPage.tsx";
 import ContactPage from "./pages/ContactPage.tsx";
 import EvenementsPage from "./pages/EvenementsPage.tsx";
+import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import NotFound from "./pages/NotFound.tsx";
 import ChatBot from "./components/ChatBot.tsx";
 import WhatsAppButton from "./components/WhatsAppButton.tsx";
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/campus" element={<CampusPage />} />
             <Route path="/evenements" element={<EvenementsPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/confidentialite" element={<PolitiqueConfidentialite />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

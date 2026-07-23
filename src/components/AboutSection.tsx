@@ -69,10 +69,10 @@ const AboutSection = () => {
           }`}
         >
           {[
-            { value: "8+", label: "Filières" },
+            { value: "10+", label: "Filières" },
             { value: "200+", label: "Étudiants" },
-            { value: "100%", label: "Stage garanti" },
-            { value: "Dès 50.000", label: "FCFA en L1/L2 (60.000 en L3)" },
+            { value: "100%", label: "Stage garanti en fin de formation" },
+            { value: "Formation complète 500.000", label: "FCFA en L1/L2 (600.000 en L3)" },
           ].map((stat, i) => (
             <div
               key={i}

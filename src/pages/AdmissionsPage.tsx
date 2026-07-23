@@ -9,16 +9,18 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ZoomCarousel from "@/components/ZoomCarousel";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import studentsAdmission from "@/assets/students-admission.jpg";
-import studentsGroup from "@/assets/students-group.jpg";
+import studentsAdmission from "@/assets/students-admission.webp";
+import studentsGroup from "@/assets/students-group.webp";
 
 // Liste des documents nettoyée et professionnelle
 const documents = [
   "Copie légalisée du dernier diplôme (BAC ou équivalent)",
-  "Relevés de notes des 2 dernières années",
   "Photocopie en couleur de l'acte de naissance",
+  "Relevés de notes ",
   "4 photos d'identité format passeport",
-  "Copie de la carte d'identité ou du passeport",
+  "Une enveloppe Kaki A4",
+  "1 Paquet de rame A4",
+  "1 Paquet de marqueur tableau blanc (non permanent)",
 ];
 
 const faqs = [
@@ -60,7 +62,7 @@ const AdmissionsPage = () => {
           { src: studentsAdmission, alt: "Admissions IESC" },
           { src: studentsGroup, alt: "Étudiants IESC" },
         ]}
-        title="Admissions | Inscriptions"
+        title="Admissions et Inscriptions"
         subtitle="Rejoignez l'IESC et construisez votre avenir professionnel. Pré-inscrivez-vous en ligne en 2 minutes."
       />
 
@@ -71,7 +73,7 @@ const AdmissionsPage = () => {
             La campagne d'admission est ouverte !
           </h2>
           <div className="inline-flex items-center gap-2 bg-[#CC1122] text-white font-bold py-3 px-8 rounded-full shadow-lg animate-pulse text-sm md:text-base cursor-default">
-            🎁 KIT IESC OFFERT AUX 50 PREMIERS INSCRITS EN LIGNE
+            🎁 Les pré-inscriptions restent ouvertes
           </div>
         </div>
       </div>
@@ -157,14 +159,26 @@ const AdmissionsPage = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Filière souhaitée *</label>
                  <select required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CC1122] focus:border-transparent outline-none bg-white transition-all cursor-pointer" onChange={(e) => setFormData({...formData, filiere: e.target.value})}>
                   <option value="">-- Sélectionnez une filière --</option>
-                  <option value="genie-informatique">Génie Informatique</option>
-                  <option value="gestion-rh">Gestion des Ressources Humaines</option>
-                  <option value="comptabilite">Comptabilité</option>
-                  <option value="banque-assurance">Banque, Assurances et Finances</option>
-                  <option value="reseaux-telecoms">Réseaux et Télécommunications</option>
-                  <option value="logistique">Management de la Chaîne Logistique</option>
-                  <option value="entrepreneuriat">Management Entrepreneuriat</option>
-                  <option value="droit">Droit</option>
+                  
+                  <optgroup label="Technologies de l'Information">
+                    <option value="genie-informatique">Génie Informatique</option>
+                    <option value="reseaux-telecoms">Réseaux et Télécommunications</option>
+                    <option value="data-ia">Sciences des Données et Intelligence Artificielle</option>
+                  </optgroup>
+                  
+                  <optgroup label="Sciences Appliquées & Santé">
+                    <option value="qhse">QHSE (Qualité, Hygiène, Sécurité, Environnement)</option>
+                    <option value="delegue-medical">Délégué Médical</option>
+                  </optgroup>
+                  
+                  <optgroup label="Sciences de Gestion & Droit">
+                    <option value="gestion-rh">Gestion des Ressources Humaines</option>
+                    <option value="comptabilite">Comptabilité</option>
+                    <option value="banque-assurance">Banque, Assurances et Finances</option>
+                    <option value="logistique">Management de la Chaîne Logistique</option>
+                    <option value="entrepreneuriat">Management Entrepreneuriat</option>
+                    <option value="droit">Droit</option>
+                  </optgroup>
                 </select>
                 </div>
 

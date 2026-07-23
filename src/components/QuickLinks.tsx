@@ -3,7 +3,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const links = [
   { icon: BookOpen, title: "Licence (BAC+3)", description: "Programmes de premier cycle dans 8 filières professionnelles", href: "#programmes" },
-  { icon: GraduationCap, title: "Master (BAC+5)", description: "Formations avancées pour les cadres de demain", href: "#programmes" },
+  { icon: GraduationCap, title: "Corps Professoral d'Excellence", description: "Apprenez auprès d'experts du secteur et développez un réseau professionnel solide.", href: "#programmes" },
   { icon: Globe, title: "Formation Continue", description: "Cours du soir pour professionnels et fonctionnaires", href: "#programmes" },
   { icon: Award, title: "Stages Garantis", description: "Un stage professionnel garanti en fin de formation", href: "#admissions" },
 ];

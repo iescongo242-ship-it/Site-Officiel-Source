@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"; // <-- LA LIGNE MAGIQUE QUI RÉPARE TOUT !
 import { MapPin, Phone, Mail, Globe, Facebook } from "lucide-react";
 import logoWhite from "../assets/logo-iesc-white.png";
 
@@ -15,18 +16,25 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* 2. LIENS RAPIDES */}
+          {/* 2. LIENS RAPIDES (Corrigés avec les vraies routes React) */}
           <div>
             <h4 className="font-heading font-bold text-lg mb-6 text-white">Liens Rapides</h4>
             <ul className="space-y-3">
-              {["Accueil", "À Propos", "Programmes", "Admissions"].map((l) => (
-                <li key={l}>
-                  <a
-                    href={`#${l.toLowerCase().replace(/\s/g, "").replace("à", "a")}`}
+              {[
+                { label: "Accueil", path: "/" },
+                { label: "Nos Formations", path: "/formations" },
+                { label: "Inscriptions & Admissions", path: "/admissions" },
+                { label: "Notre Campus", path: "/campus" },
+                { label: "Actualités & Événements", path: "/evenements" },
+                { label: "Contact", path: "/contact" }
+              ].map((link, index) => (
+                <li key={index}>
+                  <Link
+                    to={link.path}
                     className="text-sm text-gray-400 hover:text-white transition-colors"
                   >
-                    {l}
-                  </a>
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -42,6 +50,9 @@ const Footer = () => {
                 "Droit",
                 "Management",
                 "Réseaux & Télécoms",
+                "Banque, Assurance et Finances",
+                "Intelligence Artifiecielle et Sciences de Données",
+                "QHSE (Qualité, Hygiène, Sécurité, Environnement)",
               ].map((f) => (
                 <li key={f} className="text-sm text-gray-400">
                   {f}
@@ -50,11 +61,10 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* 4. CONTACT & RÉSEAUX (La section modifiée) */}
+          {/* 4. CONTACT & RÉSEAUX */}
           <div>
             <h4 className="font-heading font-bold text-lg mb-6 text-white">Contact</h4>
             <ul className="space-y-4">
-              {/* Ligne Adresse */}
               <li className="flex items-start gap-3 text-sm text-gray-400 group cursor-default">
                 <MapPin size={18} className="mt-0.5 shrink-0 text-white/60 group-hover:text-white transition-colors duration-300" />
                 <span className="group-hover:text-white transition-colors duration-300">
@@ -62,7 +72,6 @@ const Footer = () => {
                 </span>
               </li>
               
-              {/* Ligne Téléphone */}
               <li className="flex items-center gap-3 text-sm text-gray-400 group cursor-default">
                 <Phone size={18} className="shrink-0 text-white/60 group-hover:text-white transition-colors duration-300" />
                 <span className="group-hover:text-white transition-colors duration-300">
@@ -70,7 +79,6 @@ const Footer = () => {
                 </span>
               </li>
               
-              {/* Ligne Email */}
               <li className="flex items-center gap-3 text-sm text-gray-400 group cursor-default">
                 <Mail size={18} className="shrink-0 text-white/60 group-hover:text-white transition-colors duration-300" />
                 <a href="mailto:info@iesc-cg.net" className="group-hover:text-white transition-colors duration-300">
@@ -78,7 +86,6 @@ const Footer = () => {
                 </a>
               </li>
               
-              {/* Ligne Site Web */}
               <li className="flex items-center gap-3 text-sm text-gray-400 group cursor-default">
                 <Globe size={18} className="shrink-0 text-white/60 group-hover:text-white transition-colors duration-300" />
                 <a href="https://www.iesc-cg.net" target="_blank" rel="noopener noreferrer" className="group-hover:text-white transition-colors duration-300">
@@ -87,7 +94,6 @@ const Footer = () => {
               </li>
             </ul>
 
-            {/* Boutons Réseaux Sociaux */}
             <div className="flex gap-4 mt-8">
               <a href="https://www.facebook.com/institutiesc" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-[#CC1122] hover:scale-110 transition-all duration-300 shadow-sm">
                 <Facebook size={18} />
@@ -100,8 +106,13 @@ const Footer = () => {
 
         </div>
 
-        <div className="border-t border-white/10 mt-16 pt-8 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} IESC — Institut d'Enseignement Supérieur du Congo. Tous droits réservés.
+        {/* LIGNE DU BAS : Copyright et Lien vers la page de Confidentialité */}
+        <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+          <p>© {new Date().getFullYear()} IESC — Institut d'Enseignement Supérieur du Congo. Tous droits réservés.</p>
+          
+          <Link to="/confidentialite" className="hover:text-white transition-colors underline">
+            Mentions Légales & Politique de Confidentialité
+          </Link>
         </div>
       </div>
     </footer>

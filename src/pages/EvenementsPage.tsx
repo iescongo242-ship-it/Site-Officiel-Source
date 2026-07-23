@@ -4,41 +4,49 @@ import Footer from "@/components/Footer";
 import ZoomCarousel from "@/components/ZoomCarousel";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Calendar, MapPin, Clock, Users, ArrowRight } from "lucide-react";
-import eventCineDebat from "@/assets/event-cine-debat.jpg";
-import eventGraduation from "@/assets/event-graduation.jpg";
-import eventConference from "@/assets/event-conference.jpg";
+import eventJournée from "@/assets/Prochaine-journée.webp";
+import eventRentrer from "@/assets/Prochaine-rentrer.webp";
+import eventConference from "@/assets/conference_ia.webp";
 
 const upcomingEvents = [
   {
-    title: "Grande Journée Portes Ouvertes (JPO)",
-    date: "27 Juin 2026",
-    time: "08h00 - 15h00",
+    title: "Prochaine Journée Portes Ouvertes (JPO)",
+    date: "Date à venir",
+    time: "À déterminer",
     location: "Campus de l'IESC, Brazzaville",
-    description: "Venez découvrir notre campus et nos filières d'excellence ! Au programme : visites guidées, ateliers et grand cocktail de clôture. 🎁 BONUS : Pré-inscrivez-vous en ligne et recevez le Kit IESC (réservé aux 50 premiers). 🎉 LE JOUR-J : Tirage au sort exceptionnel avec -15% de réduction pour les 10 premiers dossiers validés !",
-    image: eventConference, 
-    category: "Portes Ouvertes - Places Limitées",
+    description: "Suite au grand succès de notre dernière édition, nous préparons déjà la prochaine JPO ! Restez à l'écoute pour découvrir la nouvelle date. D'ici là, nos pré-inscriptions en ligne restent ouvertes.",
+    image: eventJournée, // Garde ta variable d'image
+    category: "Événement à venir",
   },
+  
+  {
+    title: "Rentrée Solennelle et Journée d'Intégration",
+    date: "Octobre 2026",
+    time: "09h00 - 16h00",
+    location: "Campus de l'IESC, Brazzaville",
+    description: "Célébrons le lancement de notre deuxième année académique ! Accueil chaleureux des nouveaux bacheliers en L1, retrouvailles pour nos étudiants de L2, présentation du corps professoral et activités d'intégration au programme.",
+    image: eventRentrer, // J'ai changé l'image pour éviter de montrer des toques de diplômés !
+    category: "Rentrée Académique",
+  },
+
   {
     title: "Conférence : L'IA et l'Avenir de l'Emploi en Afrique",
-    date: "28 Octobre 2026",
+    date: "28 Octobre 2025",
     time: "14h00 - 17h00",
     location: "Amphithéâtre Principal",
     description: "Des experts nationaux et internationaux discuteront de l'impact de l'intelligence artificielle sur le marché de l'emploi.",
     image: eventConference,
     category: "Conférence",
   },
-  {
-    title: "Cérémonie de Remise des Diplômes",
-    date: "20 Décembre 2026",
-    time: "10h00 - 13h00",
-    location: "Salle des Fêtes, Brazzaville",
-    description: "Célébrons ensemble la réussite de nos diplômés de la promotion sortante. Une journée mémorable pour nos étudiants et leurs familles.",
-    image: eventGraduation,
-    category: "Cérémonie",
-  },
 ];
 
 const pastEvents = [
+  // On a basculé la JPO du 27 Juin ici !
+  { 
+    title: "Journée Portes Ouvertes (Édition Juin 2026)", 
+    date: "27 Juin 2026", 
+    description: "Une journée exceptionnelle de découvertes de notre campus, d'ateliers et de rencontres avec notre équipe pédagogique." 
+  },
   { 
     title: "L'IESC à l'événement de l'innovation MTN", 
     date: "Mai 2026", 
@@ -54,29 +62,24 @@ const pastEvents = [
     date: "Mars 2026", 
     description: "48 heures de créativité et d'innovation technologique réunissant les meilleurs talents de l'école." 
   },
-  { 
-    title: "Forum Emploi & Stages", 
-    date: "Novembre 2025", 
-    description: "Rencontre exclusive entre nos étudiants et plus de 20 entreprises partenaires (Banques, Télécoms, Assurances)." 
-  },
 ];
 
 const EvenementsPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
        <SEO 
-        title="Actualités & Vie Étudiante" 
+        title="Actualités et Vie Étudiante" 
         description="Plongez dans la vie de campus de l'IESC Brazzaville : actualités, journées portes ouvertes, conférences, hackathons et cérémonies de remise de diplômes." 
       />
       <Navbar />
 
       <ZoomCarousel
         images={[
-          { src: eventCineDebat, alt: "Vie étudiante IESC" },
-          { src: eventGraduation, alt: "Remise de diplômes" },
+          { src: eventJournée, alt: "Vie étudiante IESC" },
+          { src: eventRentrer, alt: "Remise de diplômes" },
           { src: eventConference, alt: "Conférence" },
         ]}
-        title="Actualités | Vie Étudiante"
+        title="Actualités et Vie Étudiante"
         subtitle="Découvrez les temps forts de l'IESC : notre participation aux grands événements, nos conférences, et la vie sur le campus."
         badge="Le Magazine de l'IESC"
       />
