@@ -12,15 +12,15 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import studentsClassroom from "@/assets/students-classroom.webp";
 import studentsLab from "@/assets/students-lab.webp";
 import librarytravail from "@/assets/Espace-travail.webp";
-import FormCompta from "@/assets/comptabilité-3.jpg";
+import FormCompta from "@/assets/compta-1.webp";
 import FormDroit from "@/assets/Droit2.webp";
 import FormFinance from "@/assets/finance-banque-assurance-2.webp";
 import FormRh from "@/assets/rh-1.webp";
 import FormQHSE from "@/assets/QHSE-f.webp";
 import FormIASD from "@/assets/IASD-1.webp";
-import FormIG from "@/assets/GénieInformatique1.webp";
+import FormIG from "@/assets/GenieInformatique1.webp";
 import FormRt from "@/assets/Rt-2.webp";
-import FormTL from "@/assets/Management-Chaîne-Logistique1.webp";
+import FormTL from "@/assets/Management-Chaine-Logistique1.webp";
 import FormME from "@/assets/Management-Entrepreneuriat2.webp";
 
 
