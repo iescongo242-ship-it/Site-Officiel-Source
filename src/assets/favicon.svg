@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Fond Rouge IESC avec bords arrondis -->
+  <rect width="100" height="100" rx="22" fill="#CC1122" />
+  
+  <!-- L'Acronyme "I" géant et massif -->
+  <text x="50" y="88" font-family="'Times New Roman', Georgia, serif" font-size="75" font-weight="bold" fill="#FFFFFF" text-anchor="middle">I</text>
+  
+  <!-- La Toque Universitaire (Posée sur le I) -->
+  <g transform="translate(0, -3)">
+    <!-- Base de la toque (crâne) en noir -->
+    <path d="M 32 30 V 44 C 32 52 68 52 68 44 V 30 Z" fill="#000000" />
+    
+    <!-- Haut de la toque (losange) en noir avec contour blanc pour le contraste -->
+    <path d="M 50 12 L 85 26 L 50 40 L 15 26 Z" fill="#000000" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round" />
+    
+    <!-- Le pompon (tassel) blanc très visible -->
+    <path d="M 50 26 L 78 34 V 52" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" />
+    <circle cx="78" cy="54" r="4.5" fill="#FFFFFF" />
+  </g>
+</svg>
