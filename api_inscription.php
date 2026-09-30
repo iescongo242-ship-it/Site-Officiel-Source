@@ -62,7 +62,8 @@ try {
             $message .= "💳 ID de Transaction (MTN/Airtel) : " . $data->transaction_id . "\n\n";
             $message .= "Veuillez verifier cette transaction sur votre telephone.\n";
             
-            $headers = "From: automatique@iesc-cg.net";
+            $headers = "From: contact@iesc-cg.net\r\n";
+            $headers .= "Reply-To: " . $data->email;
 
             // On envoie le mail
             mail($email_direction, $sujet, $message, $headers);
