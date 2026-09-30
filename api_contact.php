@@ -51,7 +51,7 @@ try {
             $message_mail .= "📌 Sujet : " . $data->sujet . "\n\n";
             $message_mail .= "📝 Message :\n" . $data->message . "\n";
             
-            $headers = "From: automatique@iesc-cg.net\r\n";
+            $headers = "From: admissions@iesc-cg.net\r\n";
             $headers .= "Reply-To: " . $data->email;
 
             mail($email_direction, $sujet_mail, $message_mail, $headers);
