@@ -18,7 +18,7 @@ $db_name = "iescc2768694";  // Ex: iescc_inscriptions
 $username = "iescc2768694";   // Ex: iescc_admin
 $password = "IESc242@2026!";  // Ton mot de passe secret
 
-$email_direction = "info@iesc-cg.net"; // L'email qui recevra les messages
+$email_direction = "contact@iesc-cg.net"; // L'email qui recevra les messages
 // =========================================================================
 
 try {
@@ -51,7 +51,7 @@ try {
             $message_mail .= "📌 Sujet : " . $data->sujet . "\n\n";
             $message_mail .= "📝 Message :\n" . $data->message . "\n";
             
-            $headers = "From: contact@iesc-cg.net\r\n";
+            $headers = "From: automatique@iesc-cg.net\r\n";
             $headers .= "Reply-To: " . $data->email;
 
             mail($email_direction, $sujet_mail, $message_mail, $headers);
